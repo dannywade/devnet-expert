@@ -1,0 +1,16 @@
+---
+- name: Gather syslog information
+  hosts: all
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+  - name: View configured syslog servers
+    ios_command:
+      commands: show run | i logging host
+    register: syslogservers
+    when: ansible_network_os == 'ios'
+
+  - name: Printing out configured syslog hosts
+    debug:
+      var: syslogservers

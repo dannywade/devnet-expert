@@ -1,0 +1,20 @@
+---
+all:
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    ansible_network_os: ios
+    ansible_user: dan
+    ansible_password: cisco123!
+    ansible_become: yes
+    ansible_become_method: enable
+    ansible_become_password: cisco123!
+  hosts:
+  children:
+    routers:
+      hosts:
+        r1:
+          ansible_host: 192.168.7.150
+    switches:
+      hosts:
+        sw1:
+          ansible_host: 192.168.7.151
