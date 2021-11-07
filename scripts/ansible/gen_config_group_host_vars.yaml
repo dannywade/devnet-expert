@@ -1,0 +1,11 @@
+---
+  - name: Create NX-OS Config Template
+    hosts: localhost
+    gather_facts: false
+
+    tasks:
+      - name: Create device configuration files
+        template:
+          src: ./templates/nxos.j2
+          dest: ./configs/{{ item.key }}.cfg
+        loop: "{{ nexus_devices|dict2items }}"

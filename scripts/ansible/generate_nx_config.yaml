@@ -7,8 +7,8 @@
       nexus_devices: {
         "nx-osv-1": {
           "hostname": "nx-osv-1",
-          "username": "cisco",
-          "password": "cisco",
+          "username": "{{ username }}",
+          "password": "{{ password }}",
           "vlans": [100, 200, 300],
           "l3_vlan_interfaces": True,
           "vlan_interfaces": [
@@ -20,8 +20,8 @@
         },
         "nx-osv-2": {
           "hostname": "nx-osv-1",
-          "username": "cisco",
-          "password": "cisco",
+          "username": "{{ username }}",
+          "password": "{{ password }}",
           "vlans": [100, 200, 300],
           "l3_vlan_interfaces": False,
           "netflow_enable": False,
