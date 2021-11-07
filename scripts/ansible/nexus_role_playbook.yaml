@@ -1,0 +1,8 @@
+---
+- name: Playbook for Cisco Nexus role
+  hosts: nexus_switches
+  gather_facts: false
+  connection: network_cli
+
+  roles:
+    - cisco_nexus

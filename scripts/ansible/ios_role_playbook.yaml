@@ -1,0 +1,8 @@
+---
+- name: Playbook for Cisco IOS role
+  hosts: ios_switches
+  gather_facts: false
+  connection: network_cli
+
+  roles:
+    - cisco_ios

@@ -1,0 +1,5 @@
+---
+- name: Print output
+  debug:
+    # Can also pass in variable names as well, instead of hardcoding
+    var: output
