@@ -1,0 +1,36 @@
+---
+  - name: Create NX-OS Config Template
+    hosts: localhost
+    gather_facts: false
+
+    vars:
+      nexus_devices: {
+        "nx-osv-1": {
+          "hostname": "nx-osv-1",
+          "username": "cisco",
+          "password": "cisco",
+          "vlans": [100, 200, 300],
+          "l3_vlan_interfaces": True,
+          "vlan_interfaces": [
+            {"int_num": "100", "ip": "192.168.10.1"},
+            {"int_num": "200", "ip": "192.168.20.1"},
+            {"int_num": "300", "ip": "192.168.30.1"}
+          ],
+          "netflow_enable": True,
+        },
+        "nx-osv-2": {
+          "hostname": "nx-osv-1",
+          "username": "cisco",
+          "password": "cisco",
+          "vlans": [100, 200, 300],
+          "l3_vlan_interfaces": False,
+          "netflow_enable": False,
+        }
+      }
+
+    tasks:
+      - name: Create device configuration files
+        template:
+          src: ./templates/nxos.j2
+          dest: ./configs/{{ item.key }}.cfg
+        loop: "{{ nexus_devices|dict2items }}"
