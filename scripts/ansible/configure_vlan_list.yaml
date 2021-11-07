@@ -1,0 +1,54 @@
+---
+- name: Gather syslog information
+  hosts: all
+  gather_facts: false
+  connection: network_cli
+
+  vars:
+    new_vlans: {
+      "100": {"description": "Data SVI", "ip": "10.0.100.1", "mask": "255.255.255.0"},
+      "120": {"description": "Voice SVI", "ip": "10.0.120.1", "mask": "255.255.255.0"},
+      "140": {"description": "Wireless SVI", "ip": "10.0.140.1", "mask": "255.255.255.0"}
+    }
+
+  tasks:
+  - name: View configured VLANs on device
+    ios_command:
+      commands: show vlan bri
+    register: current_vlans
+    when: ansible_network_os == 'ios'
+
+  - name: Printing out current VLANs on hosts
+    debug:
+      var: current_vlans
+
+  - name: Configure new VLANs
+    ios_config:
+      lines:
+        - vlan {{ item.key }}
+    loop: "{{ new_vlans|dict2items }}"
+    register: new_vlans_configured
+
+  - name: View all VLANs now configured on device
+    ios_command:
+      commands: show vlan bri
+    register: all_vlans_configured
+    when: ansible_network_os == 'ios'
+
+  - name: Printing out new VLANs configured
+    debug:
+      var: all_vlans_configured
+
+  - name: Configure new SVIs
+    ios_config:
+      lines:
+        - description {{ item.value.description }}
+        - ip address {{ item.value.ip }} {{ item.value.mask }}
+      parents: interface vlan {{ item.key }}
+    loop: "{{ new_vlans|dict2items }}"
+    register: new_svis_configured
+
+  - name: Printing out new SVIs
+    debug:
+      var: new_svis_configured
+
