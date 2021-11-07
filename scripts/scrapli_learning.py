@@ -1,11 +1,15 @@
 from scrapli.driver.core import IOSXEDriver
 from pprint import pprint
+from config import inv
+
+dev = inv.get("192.168.7.151")
+
 
 MY_DEVICE = {
-    "host": "192.168.7.151",
-    "auth_username": "cisco",
-    "auth_password": "cisco",
-    "auth_secondary": "cisco", # Enable password (if used)
+    "host": dev.get("host"),
+    "auth_username": dev.get("user"),
+    "auth_password": dev.get("pass"),
+    "auth_secondary": dev.get("enable_pass"), # Enable password (if used)
     "auth_strict_key": False,
     "ssh_config_file": "config" # Need to include for older cipher suites (vIOS 15.x)
 }

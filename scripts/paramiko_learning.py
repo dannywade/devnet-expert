@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 
 import paramiko
+from config import inv
 
 """
 Paramiko is a low-level SSHv2 library. Hard dependency on
@@ -11,13 +12,15 @@ underlying connection protocol for Ansible network modules
 Example from "Mastering Python Networking" by Eric Chou
 """
 
+dev = inv.get("iosv-1")
+
 connection = paramiko.SSHClient()
 
 # Automatically adds SSH keys
 connection.set_missing_host_key_policy(paramiko.AutoAddPolicy)
 
 # Connect to the device
-connection.connect("172.16.1.20", username="cisco", password="cisco", look_for_keys=False, allow_agent=False)
+connection.connect(dev.get("host"), username=dev.get("user"), password=dev.get("pass"), look_for_keys=False, allow_agent=False)
 
 # Create connections
 new_connection = connection.invoke_shell()
