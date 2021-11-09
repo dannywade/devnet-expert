@@ -1,6 +1,8 @@
 #! /usr/bin/env python3
 
 import pexpect
+from config import inv
+
 
 """
 Pexpect spawns child processes, controls them with parent process,
@@ -10,14 +12,16 @@ and responds to expected patterns in output. Similar to TCL
 Example from "Mastering Python Networking" by Eric Chou
 """
 
+dev = inv.get("iosv-1")
+
 # Connect to network device
-child = pexpect.spawn("telnet 172.16.1.20")
+child = pexpect.spawn(f"telnet {dev.get('host')}")
 
 # Logging into the device
 child.expect("Username")
-child.sendline("cisco")
+child.sendline(dev.get("user"))
 child.expect("Password")
-child.sendline("cisco")
+child.sendline(dev.get("pass"))
 
 # Expecting prompt
 child.expect("iosv-1#")

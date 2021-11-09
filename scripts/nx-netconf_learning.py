@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 from ncclient import manager
-
+from config import inv
 """
 NX-API is turned off by default on Cisco Nexus devices. Here
 are steps to enable it via CLI:
@@ -16,13 +16,15 @@ ncclient is a Python library for NETCONF clients.
 Example from "Mastering Python Networking" by Eric Chou
 """
 
+dev = inv.get("nexus")
+
 conn = manager.connect(
-    host="172.16.1.90",
-    port=22,
-    username="cisco",
-    password="cisco",
+    host=dev.get("host"),
+    port=dev.get("port"),
+    username=dev.get("user"),
+    password=dev.get("pass"),
     hostkey_verify=False,  # Bypasses the known_hosts requirement
-    device_params={"name": "nexus"},  # Specifies the type of device
+    device_params={"name": dev.get("type")},  # Specifies the type of device
     look_for_keys=False  # Disables the private-public key auth
 )
 

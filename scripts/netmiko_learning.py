@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 from netmiko import ConnectHandler
-
+from config import inv
 """
 Netmiko is a fork of Paramiko and simplifies the
 channel management when connecting to a network device
@@ -9,8 +9,15 @@ channel management when connecting to a network device
 Example from "Mastering Python Networking" by Eric Chou
 """
 
+dev = inv.get("iosv-1")
+
 # Define the device to connect to
-ios_v1 = {"device_type": "ios", "host": "172.16.1.20", "username": "cisco", "password": "cisco"}
+ios_v1 = {
+    "device_type": dev.get("type"),
+    "host": dev.get("host"),
+    "username": dev.get("user"),
+    "password": dev.get("pass")
+    }
 
 # Connect to the device
 net_connect = ConnectHandler(**ios_v1)
