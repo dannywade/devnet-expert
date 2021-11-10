@@ -18,7 +18,7 @@ vlan {{ vlan_num }}
 
 {% if item.value.l3_vlan_interfaces %}
 {% for vlan_interface in item.value.vlan_interfaces %}
-interface {{ vlan_interface.int_num }}
+interface Vlan{{ vlan_interface.int_num }}
   ip address {{ vlan_interface.ip }}/24
 {% endfor %}
 {% endif %}

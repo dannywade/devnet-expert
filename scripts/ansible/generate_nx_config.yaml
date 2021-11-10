@@ -19,7 +19,7 @@
           "netflow_enable": True,
         },
         "nx-osv-2": {
-          "hostname": "nx-osv-1",
+          "hostname": "nx-osv-2",
           "username": "{{ username }}",
           "password": "{{ password }}",
           "vlans": [100, 200, 300],
