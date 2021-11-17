@@ -2,7 +2,7 @@ from scrapli.driver.core import IOSXEDriver
 from pprint import pprint
 from config import inv
 
-dev = inv.get("192.168.7.151")
+dev = inv.get("R1")
 
 
 MY_DEVICE = {
@@ -18,7 +18,7 @@ def main():
     """Simple example demonstrating getting structured data via textfsm/ntc-templates"""
     with IOSXEDriver(**MY_DEVICE) as conn:
         # Platform drivers will auto-magically handle disabling paging for you
-        result = conn.send_command("show vlan")
+        result = conn.send_command("show version")
 
     print(result.result)
     pprint(result.genie_parse_output())
