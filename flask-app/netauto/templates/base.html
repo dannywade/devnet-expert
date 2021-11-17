@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <title>NetAuto Flask App</title>
+    <!-- Sandstone bootstrap theme -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <h1 style="margin-left: 20px;">NetAuto Flask App</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/show-version">Show Version</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+    {% block content -%}
+
+    {%- endblock content %}
+</body>
+
+</html>

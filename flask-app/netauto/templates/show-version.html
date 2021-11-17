@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row px-4">
+    <h2>Collect Software Version from IOS Device</h2>
+</div>
+<div class="row p-4">
+    <form id="showVersion" name="showVersion" method="post" action="show-version-results">
+        <div class="col-2">
+            <div class="form-group">
+                <label for="hostname" class="form-label">Select host</label>
+                <select class="form-select" id="hostname" name="hostname">
+                    <option value="R1">R1</option>
+                    <option value="Stream-SW">Stream-SW</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <button type="submit" id="versionSubmit" class="btn btn-primary">Get Version</button>
+    </form>
+</div>
+{% endblock %}
