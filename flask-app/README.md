@@ -7,3 +7,5 @@ missing altogether. Feel free to open a PR and contribute!
 
 ### Use Cases
 - Collect the 'show version' of a network device in our inventory and returning results to user
+
+![Diagram of Python ORM data flow](python_orm_flow.png)
