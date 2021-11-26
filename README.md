@@ -8,7 +8,7 @@ links to the resources I found most helpful along the way. Feel free to message 
 feedback.
 
 Book List:
-- [ ] Mastering Python Networking (Eric Chou)
+- [x] Mastering Python Networking (Eric Chou)
 - [ ] Network Programmability and Automation Fundamentals (Cisco Press)
 - [ ] Network Programmability with YANG: The Structure of Network Automation with YANG, NETCONF, RESTCONF, and gNMI (Benoit Claise, Joe Clarke)
 - [ ] Kubernetes: Up and Running: Dive into the Future of Infrastructure (Brendan Burns, Joe Beda, Kelsey Hightower)
