@@ -7,9 +7,12 @@ reading below, and will be checking them off as I knock them out. I'll also be u
 links to the resources I found most helpful along the way. Feel free to message me if you have any questions or have any additional 
 feedback.
 
+## ATTENTION:
+I've discovered that GitLab will most likely be used in the DevNet Expert lab environment, so I've begun developing some of my scripts/apps in a GitLab as practice. You can find the repo here: [GitLab repo](https://gitlab.com/dannywade/devnet-expert)
+
 Book List:
 - [x] Mastering Python Networking (Eric Chou)
-- [ ] Clean Architecture (Robert C. Martin)
-- [ ] Network Programmability and Automation Fundamentals (Cisco Press)
+- [x] Clean Architecture (Robert C. Martin)
 - [ ] Network Programmability with YANG: The Structure of Network Automation with YANG, NETCONF, RESTCONF, and gNMI (Benoit Claise, Joe Clarke)
 - [ ] Kubernetes: Up and Running: Dive into the Future of Infrastructure (Brendan Burns, Joe Beda, Kelsey Hightower)
+- [x] Network Programmability and Automation Fundamentals (Cisco Press) - *Using only for reference (not reading completely through)*
