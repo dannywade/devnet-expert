@@ -1,0 +1,117 @@
+module ip-access-list {
+    namespace "http://devnetdan.com/ns/yang/ip-access-list";
+    prefix acl;
+
+    import ietf-inet-types {
+        prefix inet;
+    }
+
+    import protocol-base {
+        prefix protocol;
+    }
+
+    // Entity that created the module
+    organization
+    "DevNet Dan";
+
+    contact
+      "Dan Wade
+       Email: dan@devnetdan.com";
+
+    // Purpose of the module    
+    description
+      "Access Control List (ACL) YANG model (based on DevNet LL)";
+    
+    // Version control
+    revision 2022-02-20 {
+        description
+          "Initial revision";
+    }
+
+    typedef port-type {
+        type union {
+            type uint16 {
+                range "0..65535";
+            }
+            type enumeration {
+                enum "ssh" {value 22;}
+                enum "telnet" {value 23;}
+                enum "http" {value 80;}
+                enum "https" {value 443;}
+                enum "ftp" {value 21;}
+                enum "pop3" {value 110;}
+                enum "smtp" {value 25;}
+                enum "tftp" {value 69;}
+                enum "domain" {value 53;}
+                enum "ntp" {value 123;}
+            }
+        }
+    }
+
+    identity udp {
+        base protocol:protocol;
+        description "User Datagram Protocol";
+    }
+
+    identity icmp {
+        base protocol:protocol;
+        description "Internet Control Message Protocol";
+    }
+
+    container acl {
+        description
+          "Access Control Lists";
+
+        leaf acl-description {
+            type string {
+                length "0..64";
+                pattern "[0-9a-zA-Z]*";
+            }
+            description "Purpose of ACL";
+        }
+
+        leaf-list maintainers {
+            type string;
+            description "Maintainers working on the ACL";
+        }
+
+        list entry {
+            key "number";
+            leaf number {
+                type uint16;
+            }
+
+            leaf action {
+                // ACLs only allow permit/deny actions
+                type enumeration {
+                    enum permit;
+                    enum deny;
+                }
+            }
+
+            leaf source-ip {
+                type inet:ipv4-address;
+                description "Source IPv4 address";
+            }
+
+            leaf destination-ip {
+                type inet:ipv4-address;
+                description "Destination IPv4 address";
+            }
+
+            leaf destination-port {
+                when "../protocol != 'acl:icmp'";
+                type port-type;
+            }
+
+            leaf protocol {
+                type identityref {
+                    base protocol:protocol;
+                }
+                description "Protocol for ACE";
+            }
+            
+            description "Sequence number of an ACE";
+        }
+    }
+}

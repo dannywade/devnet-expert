@@ -1,0 +1,14 @@
+module protocol-base {
+    namespace "http://devnetdan.com/ns/yang/protocol-base";
+    prefix protocol;
+    description "The base module for the protocol";
+
+    identity protocol {
+        description "Custom identity for the protocol";
+    }
+
+    identity tcp {
+        base protocol;
+        description "Transmission Control Protocol";
+    }
+}
