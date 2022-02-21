@@ -1,0 +1,99 @@
+module vlan {
+
+  namespace "http://netdevops.live/vlan";
+  prefix netdevops;
+
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import tailf-common {
+    prefix tailf;
+  }
+  import tailf-ncs {
+    prefix ncs;
+  }
+
+  description
+    "This is a simple L2 VLAN service with basic switchport configuration";
+
+  revision 2019-05-01 {
+    description
+      "Kevin's initial revision - Implements Basic L2 VLAN definition";
+  }
+
+  typedef zone1000-vlan {
+    tailf:info "By policy, this model is restricted to ID's 1000-2000";
+    type uint16 {
+      range "1000..2000";
+    }
+  }
+
+// VLAN list contains the following:
+//  - VLAN name
+//  - VLAN ID (must be within range of 1000-2000
+
+//  - Device List:
+//    - Device (points to an existing device in NSO)
+//    - Trunk-port
+//    - Access-port (port must not have another VLAN already assigned)
+
+// - ncs:service-data 
+// - ncs:servicepoint vlan-servicepoint; (reference to use Python for additional logic)
+
+  list vlan {
+    tailf:info "Manage L2 VLAN Services";
+    description "Manage L2 VLAN Services";
+
+    key name;
+    leaf name {
+      tailf:info "Unique service id";
+      tailf:cli-allow-range;
+      type string;
+    }
+
+    leaf id {
+      tailf:info "VLAN ID";
+      type zone1000-vlan;
+    }
+
+    list device {
+      key device;
+      leaf device {
+        type leafref {
+          path /ncs:devices/ncs:device/ncs:name;
+        }
+      }
+
+      list trunk-port {
+        key port;
+        leaf port {
+          type string;
+        }
+      }
+
+      list access-port {
+        key port;
+
+        leaf port {
+          type string;
+        }
+
+        // Ensures Access port is not configured by another VLAN
+        must "count(/netdevops:vlan[name!=current()/../../name]/device[device=current()/../device]/access-port[port=current()]) = 0" {
+          error-message "Access port already in use by another VLAN";
+        }
+
+        leaf description {
+          type string;
+        }
+      }
+    }
+
+
+    // Used to to pass model to Python
+    uses ncs:service-data;
+    
+    // Called in Main class in main.py
+    ncs:servicepoint vlan-servicepoint;
+  }
+}
