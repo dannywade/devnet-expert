@@ -1,0 +1,271 @@
++++ yang-r2 with alias 'cli': executing command 'show bgp all summary' +++
+show bgp all summary
+For address family: IPv4 Unicast
+BGP router identifier 2.2.2.2, local AS number 65002
+BGP table version is 2, main routing table version 2
+1 network entries using 248 bytes of memory
+1 path entries using 136 bytes of memory
+1/1 BGP path/bestpath attribute entries using 288 bytes of memory
+0 BGP route-map cache entries using 0 bytes of memory
+0 BGP filter-list cache entries using 0 bytes of memory
+BGP using 672 total bytes of memory
+BGP activity 1/0 prefixes, 1/0 paths, scan interval 60 secs
+1 networks peaked at 00:28:45 Feb 25 2022 UTC (02:10:27.307 ago)
+
+Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
+10.10.254.1     4        65001       0       0        1    0    0 00:00:56 Idle
+yang-r2#
++++ yang-r2 with alias 'cli': executing command 'show ip bgp template peer-session' +++
+show ip bgp template peer-session
+No templates configured
+
+yang-r2#
++++ yang-r2 with alias 'cli': executing command 'show ip bgp template peer-policy' +++
+show ip bgp template peer-policy
+No templates configured
+
+yang-r2#
++++ yang-r2 with alias 'cli': executing command 'show vrf detail | inc \(VRF' +++
+show vrf detail | inc \(VRF
+yang-r2#
++++ yang-r2 with alias 'cli': executing command 'show bgp all cluster-ids' +++
+show bgp all cluster-ids
+Global cluster-id: 2.2.2.2 (configured: 0.0.0.0)
+BGP client-to-client reflection:         Configured    Used
+  all (inter-cluster and intra-cluster): ENABLED
+  intra-cluster:                         ENABLED       ENABLED
+
+List of cluster-ids:
+Cluster-id     #-neighbors C2C-rfl-CFG C2C-rfl-USE
+yang-r2#
++++ yang-r2 with alias 'cli': executing command 'show ip bgp all dampening parameters' +++
+show ip bgp all dampening parameters
+For address family: IPv4 Unicast
+
+% dampening not enabled for base
+
+For address family: IPv6 Unicast
+
+% dampening not enabled for base
+
+For address family: IPv4 Multicast
+
+% dampening not enabled for base
+
+For address family: L2VPN E-VPN
+
+% dampening not enabled for base
+
+For address family: MVPNv4 Unicast
+
+% dampening not enabled for base
+
+For address family: MVPNv6 Unicast
+
+% dampening not enabled for base
+yang-r2#
++++ yang-r2 with alias 'cli': executing command 'show bgp all neighbors' +++
+show bgp all neighbors
+For address family: IPv4 Unicast
+BGP neighbor is 10.10.254.1,  remote AS 65001, external link
+  BGP version 4, remote router ID 0.0.0.0
+  BGP state = Idle, down for 00:00:58
+  Neighbor sessions:
+    0 active, is not multisession capable (disabled)
+    Stateful switchover support enabled: NO
+  Do log neighbor state changes (via neighbor configuration)
+  Default minimum time between advertisement runs is 30 seconds
+
+  Address tracking is enabled, the RIB does have a route to 10.10.254.1
+  Route to peer address reachability Up: 3; Down: 0
+    Last notification 00:00:58
+  Connections established 1; dropped 1
+  Last reset 00:00:58, due to Interface flap of session 1
+  External BGP neighbor not directly connected.
+  External BGP neighbor configured for connected checks (single-hop no-disable-connected-check)
+  Interface associated: GigabitEthernet2 (peering address NOT in same link)
+  Transport(tcp) path-mtu-discovery is enabled
+  Graceful-Restart is disabled
+  SSO is disabled
+  No active TCP connection
+
+
+For address family: IPv6 Unicast
+
+For address family: IPv4 Multicast
+
+For address family: L2VPN E-VPN
+
+For address family: MVPNv4 Unicast
+
+For address family: MVPNv6 Unicast
+
+For address family: IPv4 Label-Unicast
+BGP neighbor is 10.10.254.1,  remote AS 65001, external link
+  BGP version 4, remote router ID 0.0.0.0
+  BGP state = Idle, down for 00:00:58
+  Neighbor sessions:
+    0 active, is not multisession capable (disabled)
+    Stateful switchover support enabled: NO
+  Do log neighbor state changes (via neighbor configuration)
+  Default minimum time between advertisement runs is 30 seconds
+
+  Address tracking is enabled, the RIB does have a route to 10.10.254.1
+  Route to peer address reachability Up: 3; Down: 0
+    Last notification 00:00:58
+  Connections established 1; dropped 1
+  Last reset 00:00:58, due to Interface flap of session 1
+  External BGP neighbor not directly connected.
+  External BGP neighbor configured for connected checks (single-hop no-disable-connected-check)
+  Interface associated: GigabitEthernet2 (peering address NOT in same link)
+  Transport(tcp) path-mtu-discovery is enabled
+  Graceful-Restart is disabled
+  SSO is disabled
+  No active TCP connection
+
+
+For address family: IPv6 Label-Unicast
+yang-r2#
++++ yang-r2 with alias 'cli': executing command 'show bgp all neighbors 10.10.254.1 policy' +++
+show bgp all neighbors 10.10.254.1 policy
+ Neighbor: 10.10.254.1, Address-Family: IPv4 Unicast
+ Neighbor: 10.10.254.1, Address-Family: IPv4 Label-Unicast
+yang-r2#
++++ yang-r2 with alias 'cli': executing command 'show bgp all' +++
+show bgp all
+For address family: IPv4 Unicast
+
+BGP table version is 2, local router ID is 2.2.2.2
+Status codes: s suppressed, d damped, h history, * valid, > best, i - internal, 
+              r RIB-failure, S Stale, m multipath, b backup-path, f RT-Filter, 
+              x best-external, a additional-path, c RIB-compressed, 
+              t secondary path, L long-lived-stale,
+Origin codes: i - IGP, e - EGP, ? - incomplete
+RPKI validation codes: V valid, I invalid, N Not found
+
+     Network          Next Hop            Metric LocPrf Weight Path
+ *>   2.2.2.2/32       0.0.0.0                  0         32768 i
+
+For address family: IPv6 Unicast
+
+
+For address family: IPv4 Multicast
+
+
+For address family: L2VPN E-VPN
+
+
+For address family: MVPNv4 Unicast
+
+
+For address family: MVPNv6 Unicast
+
+yang-r2#
++++ yang-r2 with alias 'cli': executing command 'show bgp all detail' +++
+show bgp all detail
+For address family: IPv4 Unicast
+
+BGP routing table entry for 2.2.2.2/32, version 2
+  Paths: (1 available, best #1, table default)
+  Not advertised to any peer
+  Refresh Epoch 1
+  Local
+    0.0.0.0 from 0.0.0.0 (2.2.2.2)
+      Origin IGP, metric 0, localpref 100, weight 32768, valid, sourced, local, best
+      rx pathid: 0, tx pathid: 0x0
+      Updated on Feb 25 2022 00:28:45 UTC
+
+For address family: IPv6 Unicast
+
+
+For address family: IPv4 Multicast
+
+
+For address family: L2VPN E-VPN
+
+
+For address family: MVPNv4 Unicast
+
+
+For address family: MVPNv6 Unicast
+
+yang-r2#
++++ yang-r2 with alias 'cli': executing command 'show bgp all neighbors 10.10.254.1 advertised-routes' +++
+show bgp all neighbors 10.10.254.1 advertised-routes
+For address family: IPv4 Unicast
+
+Total number of prefixes 0 
+
+For address family: IPv4 Label-Unicast
+
+Total number of prefixes 0 
+yang-r2#
++++ yang-r2 with alias 'cli': executing command 'show bgp all neighbors | i BGP neighbor' +++
+show bgp all neighbors | i BGP neighbor
+BGP neighbor is 10.10.254.1,  remote AS 65001, external link
+  External BGP neighbor not directly connected.
+  External BGP neighbor configured for connected checks (single-hop no-disable-connected-check)
+BGP neighbor is 10.10.254.1,  remote AS 65001, external link
+  External BGP neighbor not directly connected.
+  External BGP neighbor configured for connected checks (single-hop no-disable-connected-check)
+yang-r2#
++++ yang-r2 with alias 'cli': executing command 'show bgp all neighbors 10.10.254.1 routes' +++
+show bgp all neighbors 10.10.254.1 routes
+For address family: IPv4 Unicast
+
+Total number of prefixes 0 
+
+For address family: IPv4 Label-Unicast
+
+Total number of prefixes 0 
+yang-r2#
++++ yang-r2 with alias 'cli': executing command 'show bgp all neighbors | i BGP neighbor' +++
+show bgp all neighbors | i BGP neighbor
+BGP neighbor is 10.10.254.1,  remote AS 65001, external link
+  External BGP neighbor not directly connected.
+  External BGP neighbor configured for connected checks (single-hop no-disable-connected-check)
+BGP neighbor is 10.10.254.1,  remote AS 65001, external link
+  External BGP neighbor not directly connected.
+  External BGP neighbor configured for connected checks (single-hop no-disable-connected-check)
+yang-r2#
++++ yang-r2 with alias 'cli': executing command 'show bgp all neighbors 10.10.254.1 received-routes' +++
+show bgp all neighbors 10.10.254.1 received-routes
+For address family: IPv4 Unicast
+% Inbound soft reconfiguration not enabled on 10.10.254.1
+
+For address family: IPv4 Label-Unicast
+% Inbound soft reconfiguration not enabled on 10.10.254.1
+yang-r2#
++++ yang-r2 with alias 'cli': executing command 'show bgp all neighbors | i BGP neighbor' +++
+show bgp all neighbors | i BGP neighbor
+BGP neighbor is 10.10.254.1,  remote AS 65001, external link
+  External BGP neighbor not directly connected.
+  External BGP neighbor configured for connected checks (single-hop no-disable-connected-check)
+BGP neighbor is 10.10.254.1,  remote AS 65001, external link
+  External BGP neighbor not directly connected.
+  External BGP neighbor configured for connected checks (single-hop no-disable-connected-check)
+yang-r2#
+Could not learn <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAllNeighborsReceivedRoutes'>
+Show Command: show bgp all neighbors 10.10.254.1 received-routes
+Parser Output is empty
++====================================================================================================================================================+
+| Commands for learning feature 'Bgp'                                                                                                                |
++====================================================================================================================================================+
+| - Parsed commands                                                                                                                                  |
+|----------------------------------------------------------------------------------------------------------------------------------------------------|
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAllSummary'>, arguments: {'address_family':'','vrf':''}                                     |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAllClusterIds'>                                                                             |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAllNeighbors'>, arguments: {'address_family':'','neighbor':''}                              |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAll'>, arguments: {'address_family':''}                                                     |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAllDetail'>, arguments: {'address_family':'','vrf':''}                                      |
+|====================================================================================================================================================|
+| - Commands with empty output                                                                                                                       |
+|----------------------------------------------------------------------------------------------------------------------------------------------------|
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowIpBgpTemplatePeerSession'>                                                                     |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowIpBgpTemplatePeerPolicy'>                                                                      |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowIpBgpAllDampeningParameters'>                                                                  |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAllNeighborsPolicy'>, arguments: {'neighbor':'10.10.254.1'}                                 |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAllNeighborsAdvertisedRoutes'>, arguments: {'address_family':'','neighbor':'10.10.254.1'}   |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAllNeighborsRoutes'>, arguments: {'address_family':'','neighbor':'10.10.254.1'}             |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAllNeighborsReceivedRoutes'>, arguments: {'address_family':'','neighbor':'10.10.254.1'}     |
+|====================================================================================================================================================|

@@ -1,0 +1,33 @@
+testbed:
+  credentials:
+    default:
+      username: %ENV{PYATS_USER}
+      password: %ENV{PYATS_PASS}
+    enable:
+      password: %ENV{PYATS_ENABLE_PASS}
+
+devices:
+  yang-r1:
+    type: router
+    platform: csr1000v
+    os: iosxe
+    connections:
+      cli:
+        ip: 192.168.7.160
+        protocol: ssh
+  yang-r2:
+    type: router
+    platform: csr1000v
+    os: iosxe
+    connections:
+      cli:
+        ip: 192.168.7.161
+        protocol: ssh
+  nx-sw1:
+    type: switch
+    platform: n9kv
+    os: nxos
+    connections:
+      cli:
+        ip: 192.168.7.162
+        protocol: ssh

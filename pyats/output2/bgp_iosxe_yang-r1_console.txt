@@ -1,0 +1,402 @@
++++ yang-r1 with alias 'cli': executing command 'show bgp all summary' +++
+show bgp all summary
+For address family: IPv4 Unicast
+BGP router identifier 1.1.1.1, local AS number 65001
+BGP table version is 2, main routing table version 2
+1 network entries using 248 bytes of memory
+1 path entries using 136 bytes of memory
+1/1 BGP path/bestpath attribute entries using 288 bytes of memory
+1 BGP AS-PATH entries using 24 bytes of memory
+0 BGP route-map cache entries using 0 bytes of memory
+0 BGP filter-list cache entries using 0 bytes of memory
+BGP using 696 total bytes of memory
+BGP activity 1/0 prefixes, 1/0 paths, scan interval 60 secs
+1 networks peaked at 00:29:57 Feb 25 2022 UTC (02:09:15.286 ago)
+
+Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
+10.10.254.2     4        65002     145     145        2    0    0 02:10:06        1
+yang-r1#
++++ yang-r1 with alias 'cli': executing command 'show ip bgp template peer-session' +++
+show ip bgp template peer-session
+No templates configured
+
+yang-r1#
++++ yang-r1 with alias 'cli': executing command 'show ip bgp template peer-policy' +++
+show ip bgp template peer-policy
+No templates configured
+
+yang-r1#
++++ yang-r1 with alias 'cli': executing command 'show vrf detail | inc \(VRF' +++
+show vrf detail | inc \(VRF
+yang-r1#
++++ yang-r1 with alias 'cli': executing command 'show bgp all cluster-ids' +++
+show bgp all cluster-ids
+Global cluster-id: 1.1.1.1 (configured: 0.0.0.0)
+BGP client-to-client reflection:         Configured    Used
+  all (inter-cluster and intra-cluster): ENABLED
+  intra-cluster:                         ENABLED       ENABLED
+
+List of cluster-ids:
+Cluster-id     #-neighbors C2C-rfl-CFG C2C-rfl-USE
+yang-r1#
++++ yang-r1 with alias 'cli': executing command 'show ip bgp all dampening parameters' +++
+show ip bgp all dampening parameters
+For address family: IPv4 Unicast
+
+% dampening not enabled for base
+
+For address family: IPv6 Unicast
+
+% dampening not enabled for base
+
+For address family: IPv4 Multicast
+
+% dampening not enabled for base
+
+For address family: L2VPN E-VPN
+
+% dampening not enabled for base
+
+For address family: MVPNv4 Unicast
+
+% dampening not enabled for base
+
+For address family: MVPNv6 Unicast
+
+% dampening not enabled for base
+yang-r1#
++++ yang-r1 with alias 'cli': executing command 'show bgp all neighbors' +++
+show bgp all neighbors
+For address family: IPv4 Unicast
+BGP neighbor is 10.10.254.2,  remote AS 65002, external link
+  BGP version 4, remote router ID 2.2.2.2
+  BGP state = Established, up for 02:10:08
+  Last read 00:01:25, last write 00:00:31, hold time is 180, keepalive interval is 60 seconds
+  Neighbor sessions:
+    1 active, is not multisession capable (disabled)
+  Neighbor capabilities:
+    Route refresh: advertised and received(new)
+    Four-octets ASN Capability: advertised and received
+    Address family IPv4 Unicast: advertised and received
+    Enhanced Refresh Capability: advertised and received
+    Multisession Capability: 
+    Stateful switchover support enabled: NO for session 1
+  Message statistics:
+    InQ depth is 0
+    OutQ depth is 0
+    
+                         Sent       Rcvd
+    Opens:                  1          1
+    Notifications:          0          0
+    Updates:                1          2
+    Keepalives:           143        142
+    Route Refresh:          0          0
+    Total:                145        145
+  Do log neighbor state changes (via neighbor configuration)
+  Default minimum time between advertisement runs is 30 seconds
+
+  Address tracking is enabled, the RIB does have a route to 10.10.254.2
+  Route to peer address reachability Up: 1; Down: 0
+    Last notification 02:10:31
+  Connections established 1; dropped 0
+  Last reset never
+  External BGP neighbor configured for connected checks (single-hop no-disable-connected-check)
+  Interface associated: GigabitEthernet2 (peering address in same link)
+  Transport(tcp) path-mtu-discovery is enabled
+  Graceful-Restart is disabled
+  SSO is disabled
+Connection state is ESTAB, I/O status: 1, unread input bytes: 0            
+Connection is ECN Disabled, Mininum incoming TTL 0, Outgoing TTL 1
+Local host: 10.10.254.1, Local port: 40386
+Foreign host: 10.10.254.2, Foreign port: 179
+Connection tableid (VRF): 0
+Maximum output segment queue size: 50
+
+Enqueued packets for retransmit: 1, input: 0  mis-ordered: 0 (0 bytes)
+
+Event Timers (current time is 0x79BAAD):
+Timer          Starts    Wakeups            Next
+Retrans           152          6        0x7A3686
+TimeWait            0          0             0x0
+AckHold           143        137             0x0
+SendWnd             0          0             0x0
+KeepAlive           0          0             0x0
+GiveUp              0          0             0x0
+PmtuAger         6687       6686        0x79BB6A
+DeadWait            0          0             0x0
+Linger              0          0             0x0
+ProcessQ            0          0             0x0
+
+iss: 2025873587  snduna: 2025876366  sndnxt: 2025876385
+irs: 1261036174  rcvnxt: 1261039008
+
+sndwnd:  15073  scale:      0  maxrcvwnd:  16384
+rcvwnd:  15016  scale:      0  delrcvwnd:   1368
+
+SRTT: 1000 ms, RTTO: 1003 ms, RTV: 3 ms, KRTT: 32096 ms
+minRTT: 2 ms, maxRTT: 1000 ms, ACK hold: 200 ms
+uptime: 7811483 ms, Sent idletime: 392 ms, Receive idletime: 83254 ms 
+Status Flags: active open
+Option Flags: nagle, path mtu capable
+IP Precedence value : 6
+
+Datagrams (max data segment is 1460 bytes):
+Rcvd: 289 (out of order: 0), with data: 144, total data bytes: 2833
+Sent: 287 (retransmit: 6, fastretransmit: 0, partialack: 0, Second Congestion: 0), with data: 145, total data bytes: 2797
+
+ Packets received in fast path: 0, fast processed: 0, slow path: 0
+ fast lock acquisition failures: 0, slow path: 0
+TCP Semaphore      0x7F14135D4368  FREE 
+
+
+For address family: IPv6 Unicast
+
+For address family: IPv4 Multicast
+
+For address family: L2VPN E-VPN
+
+For address family: MVPNv4 Unicast
+
+For address family: MVPNv6 Unicast
+
+For address family: IPv4 Label-Unicast
+BGP neighbor is 10.10.254.2,  remote AS 65002, external link
+  BGP version 4, remote router ID 2.2.2.2
+  BGP state = Established, up for 02:10:08
+  Last read 00:01:25, last write 00:00:31, hold time is 180, keepalive interval is 60 seconds
+  Neighbor sessions:
+    1 active, is not multisession capable (disabled)
+  Neighbor capabilities:
+    Route refresh: advertised and received(new)
+    Four-octets ASN Capability: advertised and received
+    Address family IPv4 Unicast: advertised and received
+    Enhanced Refresh Capability: advertised and received
+    Multisession Capability: 
+    Stateful switchover support enabled: NO for session 1
+  Message statistics:
+    InQ depth is 0
+    OutQ depth is 0
+    
+                         Sent       Rcvd
+    Opens:                  1          1
+    Notifications:          0          0
+    Updates:                1          2
+    Keepalives:           143        142
+    Route Refresh:          0          0
+    Total:                145        145
+  Do log neighbor state changes (via neighbor configuration)
+  Default minimum time between advertisement runs is 30 seconds
+
+  Address tracking is enabled, the RIB does have a route to 10.10.254.2
+  Route to peer address reachability Up: 1; Down: 0
+    Last notification 02:10:31
+  Connections established 1; dropped 0
+  Last reset never
+  External BGP neighbor configured for connected checks (single-hop no-disable-connected-check)
+  Interface associated: GigabitEthernet2 (peering address in same link)
+  Transport(tcp) path-mtu-discovery is enabled
+  Graceful-Restart is disabled
+  SSO is disabled
+Connection state is ESTAB, I/O status: 1, unread input bytes: 0            
+Connection is ECN Disabled, Mininum incoming TTL 0, Outgoing TTL 1
+Local host: 10.10.254.1, Local port: 40386
+Foreign host: 10.10.254.2, Foreign port: 179
+Connection tableid (VRF): 0
+Maximum output segment queue size: 50
+
+Enqueued packets for retransmit: 1, input: 0  mis-ordered: 0 (0 bytes)
+
+Event Timers (current time is 0x79BAAE):
+Timer          Starts    Wakeups            Next
+Retrans           152          6        0x7A3686
+TimeWait            0          0             0x0
+AckHold           143        137             0x0
+SendWnd             0          0             0x0
+KeepAlive           0          0             0x0
+GiveUp              0          0             0x0
+PmtuAger         6687       6686        0x79BB6A
+DeadWait            0          0             0x0
+Linger              0          0             0x0
+ProcessQ            0          0             0x0
+
+iss: 2025873587  snduna: 2025876366  sndnxt: 2025876385
+irs: 1261036174  rcvnxt: 1261039008
+
+sndwnd:  15073  scale:      0  maxrcvwnd:  16384
+rcvwnd:  15016  scale:      0  delrcvwnd:   1368
+
+SRTT: 1000 ms, RTTO: 1003 ms, RTV: 3 ms, KRTT: 32096 ms
+minRTT: 2 ms, maxRTT: 1000 ms, ACK hold: 200 ms
+uptime: 7811484 ms, Sent idletime: 393 ms, Receive idletime: 83255 ms 
+Status Flags: active open
+Option Flags: nagle, path mtu capable
+IP Precedence value : 6
+
+Datagrams (max data segment is 1460 bytes):
+Rcvd: 289 (out of order: 0), with data: 144, total data bytes: 2833
+Sent: 287 (retransmit: 6, fastretransmit: 0, partialack: 0, Second Congestion: 0), with data: 145, total data bytes: 2797
+
+ Packets received in fast path: 0, fast processed: 0, slow path: 0
+ fast lock acquisition failures: 0, slow path: 0
+TCP Semaphore      0x7F14135D4368  FREE 
+
+
+For address family: IPv6 Label-Unicast
+yang-r1#
++++ yang-r1 with alias 'cli': executing command 'show bgp all neighbors 10.10.254.2 policy' +++
+show bgp all neighbors 10.10.254.2 policy
+ Neighbor: 10.10.254.2, Address-Family: IPv4 Unicast
+ Neighbor: 10.10.254.2, Address-Family: IPv4 Label-Unicast
+yang-r1#
++++ yang-r1 with alias 'cli': executing command 'show bgp all' +++
+show bgp all
+For address family: IPv4 Unicast
+
+BGP table version is 2, local router ID is 1.1.1.1
+Status codes: s suppressed, d damped, h history, * valid, > best, i - internal, 
+              r RIB-failure, S Stale, m multipath, b backup-path, f RT-Filter, 
+              x best-external, a additional-path, c RIB-compressed, 
+              t secondary path, L long-lived-stale,
+Origin codes: i - IGP, e - EGP, ? - incomplete
+RPKI validation codes: V valid, I invalid, N Not found
+
+     Network          Next Hop            Metric LocPrf Weight Path
+ *>   2.2.2.2/32       10.10.254.2              0             0 65002 i
+
+For address family: IPv6 Unicast
+
+
+For address family: IPv4 Multicast
+
+
+For address family: L2VPN E-VPN
+
+
+For address family: MVPNv4 Unicast
+
+
+For address family: MVPNv6 Unicast
+
+yang-r1#
++++ yang-r1 with alias 'cli': executing command 'show bgp all detail' +++
+show bgp all detail
+For address family: IPv4 Unicast
+
+BGP routing table entry for 2.2.2.2/32, version 2
+  Paths: (1 available, best #1, table default)
+  Not advertised to any peer
+  Refresh Epoch 1
+  65002
+    10.10.254.2 from 10.10.254.2 (2.2.2.2)
+      Origin IGP, metric 0, localpref 100, valid, external, best
+      rx pathid: 0, tx pathid: 0x0
+      Updated on Feb 25 2022 00:29:57 UTC
+
+For address family: IPv6 Unicast
+
+
+For address family: IPv4 Multicast
+
+
+For address family: L2VPN E-VPN
+
+
+For address family: MVPNv4 Unicast
+
+
+For address family: MVPNv6 Unicast
+
+yang-r1#
++++ yang-r1 with alias 'cli': executing command 'show bgp all neighbors 10.10.254.2 advertised-routes' +++
+show bgp all neighbors 10.10.254.2 advertised-routes
+For address family: IPv4 Unicast
+
+Total number of prefixes 0 
+
+For address family: IPv4 Label-Unicast
+
+Total number of prefixes 0 
+yang-r1#
++++ yang-r1 with alias 'cli': executing command 'show bgp all neighbors | i BGP neighbor' +++
+show bgp all neighbors | i BGP neighbor
+BGP neighbor is 10.10.254.2,  remote AS 65002, external link
+  External BGP neighbor configured for connected checks (single-hop no-disable-connected-check)
+BGP neighbor is 10.10.254.2,  remote AS 65002, external link
+  External BGP neighbor configured for connected checks (single-hop no-disable-connected-check)
+yang-r1#
++++ yang-r1 with alias 'cli': executing command 'show bgp all neighbors 10.10.254.2 routes' +++
+show bgp all neighbors 10.10.254.2 routes
+For address family: IPv4 Unicast
+BGP table version is 2, local router ID is 1.1.1.1
+Status codes: s suppressed, d damped, h history, * valid, > best, i - internal, 
+              r RIB-failure, S Stale, m multipath, b backup-path, f RT-Filter, 
+              x best-external, a additional-path, c RIB-compressed, 
+              t secondary path, L long-lived-stale,
+Origin codes: i - IGP, e - EGP, ? - incomplete
+RPKI validation codes: V valid, I invalid, N Not found
+
+     Network          Next Hop            Metric LocPrf Weight Path
+ *>   2.2.2.2/32       10.10.254.2              0             0 65002 i
+
+Total number of prefixes 1 
+
+For address family: IPv4 Label-Unicast
+BGP table version is 2, local router ID is 1.1.1.1
+Status codes: s suppressed, d damped, h history, * valid, > best, i - internal, 
+              r RIB-failure, S Stale, m multipath, b backup-path, f RT-Filter, 
+              x best-external, a additional-path, c RIB-compressed, 
+              t secondary path, L long-lived-stale,
+Origin codes: i - IGP, e - EGP, ? - incomplete
+RPKI validation codes: V valid, I invalid, N Not found
+
+     Network          Next Hop            Metric LocPrf Weight Path
+ *>   2.2.2.2/32       10.10.254.2              0             0 65002 i
+
+Total number of prefixes 1 
+yang-r1#
++++ yang-r1 with alias 'cli': executing command 'show bgp all neighbors | i BGP neighbor' +++
+show bgp all neighbors | i BGP neighbor
+BGP neighbor is 10.10.254.2,  remote AS 65002, external link
+  External BGP neighbor configured for connected checks (single-hop no-disable-connected-check)
+BGP neighbor is 10.10.254.2,  remote AS 65002, external link
+  External BGP neighbor configured for connected checks (single-hop no-disable-connected-check)
+yang-r1#
++++ yang-r1 with alias 'cli': executing command 'show bgp all neighbors 10.10.254.2 received-routes' +++
+show bgp all neighbors 10.10.254.2 received-routes
+For address family: IPv4 Unicast
+% Inbound soft reconfiguration not enabled on 10.10.254.2
+
+For address family: IPv4 Label-Unicast
+% Inbound soft reconfiguration not enabled on 10.10.254.2
+yang-r1#
++++ yang-r1 with alias 'cli': executing command 'show bgp all neighbors | i BGP neighbor' +++
+show bgp all neighbors | i BGP neighbor
+BGP neighbor is 10.10.254.2,  remote AS 65002, external link
+  External BGP neighbor configured for connected checks (single-hop no-disable-connected-check)
+BGP neighbor is 10.10.254.2,  remote AS 65002, external link
+  External BGP neighbor configured for connected checks (single-hop no-disable-connected-check)
+yang-r1#
+Could not learn <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAllNeighborsReceivedRoutes'>
+Show Command: show bgp all neighbors 10.10.254.2 received-routes
+Parser Output is empty
++====================================================================================================================================================+
+| Commands for learning feature 'Bgp'                                                                                                                |
++====================================================================================================================================================+
+| - Parsed commands                                                                                                                                  |
+|----------------------------------------------------------------------------------------------------------------------------------------------------|
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAllSummary'>, arguments: {'address_family':'','vrf':''}                                     |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAllClusterIds'>                                                                             |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAllNeighbors'>, arguments: {'address_family':'','neighbor':''}                              |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAll'>, arguments: {'address_family':''}                                                     |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAllDetail'>, arguments: {'address_family':'','vrf':''}                                      |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAllNeighborsRoutes'>, arguments: {'address_family':'','neighbor':'10.10.254.2'}             |
+|====================================================================================================================================================|
+| - Commands with empty output                                                                                                                       |
+|----------------------------------------------------------------------------------------------------------------------------------------------------|
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowIpBgpTemplatePeerSession'>                                                                     |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowIpBgpTemplatePeerPolicy'>                                                                      |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowIpBgpAllDampeningParameters'>                                                                  |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAllNeighborsPolicy'>, arguments: {'neighbor':'10.10.254.2'}                                 |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAllNeighborsAdvertisedRoutes'>, arguments: {'address_family':'','neighbor':'10.10.254.2'}   |
+|   cmd: <class 'genie.libs.parser.iosxe.show_bgp.ShowBgpAllNeighborsReceivedRoutes'>, arguments: {'address_family':'','neighbor':'10.10.254.2'}     |
+|====================================================================================================================================================|

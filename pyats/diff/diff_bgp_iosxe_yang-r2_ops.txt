@@ -1,0 +1,56 @@
+--- output/bgp_iosxe_yang-r2_ops.txt
++++ output2/bgp_iosxe_yang-r2_ops.txt
+ info:
+  instance:
+   default:
+    vrf:
+     default:
+      neighbor:
+       10.10.254.1:
+        bgp_session_transport:
+         connection:
+-         state: Established
++         state: Idle
+-        transport:
+-         foreign_host: 10.10.254.1
+-         foreign_port: 40386
+-         local_host: 10.10.254.2
+-         local_port: 179
+-         mss: 1460
+-       session_state: Established
++       session_state: Idle
+-       bgp_negotiated_capabilities:
+-        enhanced_refresh: advertised and received
+-        four_octets_asn: advertised and received
+-        route_refresh: advertised and received(new)
+-        stateful_switchover: NO for session 1
+-       bgp_neighbor_counters:
+-        messages:
+-         received:
+-          keepalives: 138
+-          notifications: 0
+-          opens: 1
+-          updates: 1
+-         sent:
+-          keepalives: 138
+-          notifications: 0
+-          opens: 1
+-          updates: 2
+ routes_per_peer:
+  instance:
+   default:
+    vrf:
+     default:
+      neighbor:
+       10.10.254.1:
+        address_family:
+-        ipv4 label-unicast:
+-         advertised:
+-          2.2.2.2/32:
+-           index:
+-            1:
+-             localprf: 0
+-             next_hop: 0.0.0.0
+-             origin_codes: i
+-             status_codes: *>
+-             weight: 32768

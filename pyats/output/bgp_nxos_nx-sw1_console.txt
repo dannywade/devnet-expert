@@ -1,0 +1,88 @@
++++ nx-sw1 with alias 'cli': executing command 'show bgp process vrf all' +++
+show bgp process vrf all
+              ^
+% Invalid command at '^' marker.
+nx-sw1# 
++++ nx-sw1 with alias 'cli': executing command 'show running-config | inc peer-session' +++
+show running-config | inc peer-session
+nx-sw1# 
++++ nx-sw1 with alias 'cli': executing command 'show running-config | inc peer-policy' +++
+show running-config | inc peer-policy
+nx-sw1# 
++++ nx-sw1 with alias 'cli': executing command 'show bgp vrf all all dampening parameters' +++
+show bgp vrf all all dampening parameters
+              ^
+% Invalid command at '^' marker.
+nx-sw1# 
++++ nx-sw1 with alias 'cli': executing command 'show bgp vrf all all nexthop-database' +++
+show bgp vrf all all nexthop-database
+              ^
+% Invalid command at '^' marker.
+nx-sw1# 
++++ nx-sw1 with alias 'cli': executing command 'show routing vrf all' +++
+show routing vrf all
+IP Route Table for VRF "default"
+'*' denotes best ucast next-hop
+'**' denotes best mcast next-hop
+'[x/y]' denotes [preference/metric]
+'%<string>' in via output denotes VRF <string>
+
+0.0.0.0/0, ubest/mbest: 1/0
+    *via 192.168.7.1, [1/0], 02:05:04, static
+192.168.7.0/24, ubest/mbest: 1/0, attached
+    *via 192.168.7.162, Eth1/1, [0/0], 02:05:05, direct
+192.168.7.162/32, ubest/mbest: 1/0, attached
+    *via 192.168.7.162, Eth1/1, [0/0], 02:05:05, local
+
+nx-sw1# 
++++ nx-sw1 with alias 'cli': executing command 'show bgp vrf all all' +++
+show bgp vrf all all
+              ^
+% Invalid command at '^' marker.
+nx-sw1# 
++++ nx-sw1 with alias 'cli': executing command 'show vrf all' +++
+show vrf all
+VRF-Name                           VRF-ID State   Reason                        
+default                                 1 Up      --                            
+management                              2 Up      --                            
+nx-sw1# 
++++ nx-sw1 with alias 'cli': executing command 'show bgp vrf default all neighbors' +++
+show bgp vrf default all neighbors
+              ^
+% Invalid command at '^' marker.
+nx-sw1# 
++++ nx-sw1 with alias 'cli': executing command 'show bgp vrf all all summary' +++
+show bgp vrf all all summary
+              ^
+% Invalid command at '^' marker.
+nx-sw1# 
++++ nx-sw1 with alias 'cli': executing command 'show bgp vrf management all neighbors' +++
+show bgp vrf management all neighbors
+              ^
+% Invalid command at '^' marker.
+nx-sw1# 
+Could not learn <class 'genie.libs.parser.nxos.show_bgp.ShowBgpVrfAllNeighbors'>
+Invalid command has been executed
++====================================================================================================================================================+
+| Commands for learning feature 'Bgp'                                                                                                                |
++====================================================================================================================================================+
+| - Parsed commands                                                                                                                                  |
+|----------------------------------------------------------------------------------------------------------------------------------------------------|
+|   cmd: <class 'genie.libs.parser.nxos.show_routing.ShowRoutingVrfAll'>, arguments: {'vrf':'all'}                                                   |
+|   cmd: <class 'genie.libs.parser.nxos.show_vrf.ShowVrf'>, arguments: {'vrf':'all'}                                                                 |
+|====================================================================================================================================================|
+| - Commands not accepted on the device                                                                                                              |
+|----------------------------------------------------------------------------------------------------------------------------------------------------|
+|   cmd: <class 'genie.libs.parser.nxos.show_bgp.ShowBgpProcessVrfAll'>, arguments: {'vrf':'all'}                                                    |
+|   cmd: <class 'genie.libs.parser.nxos.show_bgp.ShowBgpVrfAllAllDampeningParameters'>, arguments: {'address_family':'all','vrf':'all'}              |
+|   cmd: <class 'genie.libs.parser.nxos.show_bgp.ShowBgpVrfAllAllNextHopDatabase'>, arguments: {'address_family':'all','vrf':'all'}                  |
+|   cmd: <class 'genie.libs.parser.nxos.show_bgp.ShowBgpVrfAllAll'>, arguments: {'address_family':'all','vrf':'all'}                                 |
+|   cmd: <class 'genie.libs.parser.nxos.show_bgp.ShowBgpVrfAllNeighbors'>, arguments: {'address_family':'all','neighbor':'','vrf':'default'}         |
+|   cmd: <class 'genie.libs.parser.nxos.show_bgp.ShowBgpVrfAllAllSummary'>, arguments: {'address_family':'all','vrf':'all'}                          |
+|   cmd: <class 'genie.libs.parser.nxos.show_bgp.ShowBgpVrfAllNeighbors'>, arguments: {'address_family':'all','neighbor':'','vrf':'management'}      |
+|====================================================================================================================================================|
+| - Commands with empty output                                                                                                                       |
+|----------------------------------------------------------------------------------------------------------------------------------------------------|
+|   cmd: <class 'genie.libs.parser.nxos.show_bgp.ShowBgpPeerSession'>                                                                                |
+|   cmd: <class 'genie.libs.parser.nxos.show_bgp.ShowBgpPeerPolicy'>                                                                                 |
+|====================================================================================================================================================|
