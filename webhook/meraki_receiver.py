@@ -1,5 +1,8 @@
 """
-Simple webhook app used to take in alerts sent from the Meraki cloud and post interesting data to a Webex Teams room. For local development, you will need to run a service to expose your app publicly (i.e. ngrok [https://ngrok.com/] or localtunnel [https://localtunnel.github.io/www/]), so that Meraki can reach your server. Otherwise, you can deploy this app on-prem or in a public cloud (AWS, Azure, GCP, etc.) and make sure that the instance is publicly accessible.
+Simple webhook app used to take in alerts sent from the Meraki cloud and post interesting data to a Webex Teams room. 
+For local development, you will need to run a service to expose your app publicly (i.e. ngrok [https://ngrok.com/] or 
+localtunnel [https://localtunnel.github.io/www/]), so that Meraki can reach your server. Otherwise, you can deploy this 
+app on-prem or in a public cloud (AWS, Azure, GCP, etc.) and make sure that the instance is publicly accessible.
 """
 from flask import Flask, request
 import requests
