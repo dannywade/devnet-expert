@@ -1,0 +1,76 @@
+module: ietf-routing
+  +--ro routing-state
+  |  +--ro routing-instance* [name]
+  |     +--ro name                 string
+  |     +--ro type?                identityref
+  |     +--ro router-id?           yang:dotted-quad
+  |     +--ro interfaces
+  |     |  +--ro interface*   if:interface-state-ref
+  |     +--ro routing-protocols
+  |     |  +--ro routing-protocol* [type name]
+  |     |     +--ro type    identityref
+  |     |     +--ro name    string
+  |     +--ro ribs
+  |        +--ro rib* [name]
+  |           +--ro name              string
+  |           +--ro address-family    identityref
+  |           +--ro default-rib?      boolean {multiple-ribs}?
+  |           +--ro routes
+  |              +--ro route* [destination-prefix]
+  |                 +--ro route-preference?     route-preference
+  |                 +--ro destination-prefix    string
+  |                 +--ro metric?               uint32
+  |                 +--ro next-hop
+  |                 |  +--ro (next-hop-options)
+  |                 |     +--:(simple-next-hop)
+  |                 |     |  +--ro outgoing-interface?   string
+  |                 |     |  +--ro next-hop-address?     string
+  |                 |     +--:(special-next-hop)
+  |                 |        +--ro special-next-hop?     enumeration
+  |                 +--ro source-protocol       identityref
+  |                 +--ro active?               empty
+  |                 +--ro last-updated?         yang:date-and-time
+  |                 +--ro update-source?        string
+  +--rw routing
+     +--rw routing-instance* [name]
+        +--rw name                 string
+        +--rw type?                identityref
+        +--rw enabled?             boolean
+        +--rw router-id?           yang:dotted-quad {router-id}?
+        +--rw description?         string
+        +--rw interfaces
+        |  +--rw interface*   if:interface-ref
+        +--rw routing-protocols
+        |  +--rw routing-protocol* [type name]
+        |     +--rw type             identityref
+        |     +--rw name             string
+        |     +--rw description?     string
+        |     +--rw static-routes
+        +--rw ribs
+           +--rw rib* [name]
+              +--rw name              string
+              +--rw address-family?   identityref
+              +--rw description?      string
+
+  augment /if:interfaces-state/if:interface:
+    +--ro routing-instance?   string
+
+  rpcs:
+    +---x fib-route
+       +---w input
+       |  +---w routing-instance-name    string
+       |  +---w destination-address
+       |     +---w address-family    identityref
+       +--ro output
+          +--ro route
+             +--ro address-family     identityref
+             +--ro next-hop
+             |  +--ro (next-hop-options)
+             |     +--:(simple-next-hop)
+             |     |  +--ro outgoing-interface?   string
+             |     |  +--ro next-hop-address?     string
+             |     +--:(special-next-hop)
+             |        +--ro special-next-hop?     enumeration
+             +--ro source-protocol    identityref
+             +--ro active?            empty
+             +--ro last-updated?      yang:date-and-time

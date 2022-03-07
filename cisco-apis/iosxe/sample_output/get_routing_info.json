@@ -1,0 +1,73 @@
+// /restconf/data/ietf-routing:routing/routing-instance=default/routing-protocols
+{
+  "ietf-routing:routing-protocols": {
+    "routing-protocol": [
+      {
+        "type": "ietf-routing:static",
+        "name": "1",
+        "static-routes": {
+          "ietf-ipv4-unicast-routing:ipv4": {
+            "route": [
+              {
+                "destination-prefix": "0.0.0.0/0",
+                "next-hop": {
+                  "next-hop-address": "192.168.7.1"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
+// /restconf/data/ietf-routing:routing/routing-instance=default/routing-protocols/routing-protocol=static,1
+{
+  "ietf-routing:routing-protocol": {
+    "type": "ietf-routing:static",
+    "name": "1",
+    "static-routes": {
+      "ietf-ipv4-unicast-routing:ipv4": {
+        "route": [
+          {
+            "destination-prefix": "0.0.0.0/0",
+            "next-hop": {
+              "next-hop-address": "192.168.7.1"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+// After adding static routes via add_static_routes.py script
+{
+  "ietf-routing:routing-protocol": {
+    "type": "ietf-routing:static",
+    "name": "1",
+    "static-routes": {
+      "ietf-ipv4-unicast-routing:ipv4": {
+        "route": [
+          {
+            "destination-prefix": "0.0.0.0/0",
+            "next-hop": {
+              "next-hop-address": "192.168.7.1"
+            }
+          },
+          {
+            "destination-prefix": "192.168.2.0/24",
+            "next-hop": {
+              "outgoing-interface": "GigabitEthernet1"
+            }
+          },
+          {
+            "destination-prefix": "192.168.3.0/24",
+            "next-hop": {
+              "next-hop-address": "192.168.7.1"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+route:
+  - destination-prefix: "192.168.2.0/24"
+    next-hop:
+      outgoing-interface: "GigabitEthernet1"
+  - destination-prefix: "192.168.3.0/24"
+    next-hop:
+      next-hop-address: "192.168.7.1"

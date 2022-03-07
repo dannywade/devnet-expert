@@ -1,0 +1,1 @@
+## All code examples are from Nick Russo's 'Deploying Network Configuration Management and Telemetry Solutions' course on Pluralsight. Link to course [here](https://app.pluralsight.com/library/courses/deploying-network-configuration-management-telemetry-solutions/table-of-contents)
