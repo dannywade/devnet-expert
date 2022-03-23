@@ -1,5 +1,5 @@
 # DevNet Expert Studies
-### Exam Date: TBD (Waiting for registration to open)
+### Exam Date: May 3, 2022
 
 This repository will be used to track my progress and maintain all notes/scripts/apps developed during my Cisco DevNet Expert studies.
 Along with labbing, I'll also be reading a few books to prepare for the DevNet Expert Lab exam. I am providing a list of the books I'm 
