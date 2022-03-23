@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-python-app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+  namespace: my-python-app
+spec:
+  selector:
+    app: my-python-app
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-demo
+  namespace: my-python-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-python-app
+  template:
+    metadata:
+      labels:
+        app: my-python-app
+    spec:
+      containers:
+        - name: my-python-app
+          image: dwade235/flask-app
+          ports:
+            - containerPort: 5000
+
+# kubectl create -f devnet-app.yml
+# VERIFICATION
+# kubectl get namespaces
+# kubectl get services -n my-python-app
+# kubectl get deployment -n my-python-app

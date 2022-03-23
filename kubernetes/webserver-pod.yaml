@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webserver
+  labels:
+    app: nginx
+    env: prod
+  annotations:
+    blog: "https://devnetdan.com/blog"
+spec:
+  containers:
+    - image: nginx
+      name: webserver
+      # Resource constraints
+      resources:
+        # Minimum
+        requests:
+          cpu: "500m"
+          memory: "256Mi"
+        # Maximum
+        limits:
+          cpu: "1000m"
+          memory: "512Mi"
+      # Health checks
+      livenessProbe:
+        httpGet:
+          path: /
+          port: 80
+        initialDelaySeconds: 5
+        timeoutSeconds: 1
+        periodSeconds: 10
+        failureThreshold: 3
+      # Ports running on container
+      ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
