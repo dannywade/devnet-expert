@@ -1,0 +1,45 @@
+# NAMESPACE
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dans-flask-app
+---
+# SERVICE
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+  namespace: dans-flask-app
+spec:
+  selector:
+    # Service matches on the below labels
+    app: flask-app
+  ports:
+    - protocol: TCP
+      port: 8080
+      # Port targeted on any pod with matching label
+      targetPort: 5000
+# Service will be assigned a "cluster IP" to be used to connect to group of pods
+# If we do not include a spec.selector then an Endpoint object must be created and mapped to the Service manually
+---
+# DEPLOYMENT
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app
+  namespace: dans-flask-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flask-app
+  template:
+    metadata:
+      labels:
+        app: flask-app
+    spec:
+      containers:
+        - name: my-flask-app
+          image: dwade235/flask-app
+          ports:
+            - containerPort: 5000
