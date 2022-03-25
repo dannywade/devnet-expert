@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  # Every RS name must be unique
+  name: flask-rs
+spec:
+  # Replicas are then number of pods always active
+  replicas: 2
+  # Used to match pods labels
+  selector:
+    matchLabels:
+      app: flask-app
+  # Pod template defines what a new pod should look like
+  template:
+    metadata:
+      # Labels are used by the RS to identify the pods to manage
+      labels:
+        app: flask-app
+        env: dev
+    spec:
+      containers:
+        - name: flask-app
+          image: dwade235/flask-app
+
+# Horizontal Pod Autoscaling (HPA) - must have 'heapster' pod running in kube-system namespace
+# kubectl autoscale rs flask-rs --min=2 --max=5 --cpu-percent=80
+  # Scales between 2-5 replicas with a CPU threshold of 80%
+
+# kubectl get hpa - verifies autoscaled resources
+# NAME       REFERENCE             TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+# flask-rs   ReplicaSet/flask-rs   <unknown>/80%   2         5         0          13s

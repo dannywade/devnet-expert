@@ -1,0 +1,54 @@
+# SERVICE
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    # Service matches on the below labels
+    app: flask-app
+  ports:
+    - protocol: TCP
+      port: 8080
+      # Port targeted on any pod with matching label
+      targetPort: 5000
+# Service will be assigned a "cluster IP" to be used to connect to group of pods
+# If we do not include a spec.selector then an Endpoint object must be created and mapped to the Service manually
+---
+# DEPLOYMENT
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+spec:
+  replicas: 4
+  # Limits the revision history to 20 deployments
+  revisionHistoryLimit: 20
+  selector:
+    matchLabels:
+      app: flask-app
+  # Rolling update strategy that will have (at max) 25% of pods unavailable during a rollout
+  # It will also use up to 25% more resources to complete a rollout - scale up to avoid downtime
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  # Deployment waits 10 secs after seeing a pod as healthy to move on to update the next pod
+  minReadySeconds: 10
+  # Timeout period for a any stage in the deployment. If timeout value hits, deployment fails
+  progressDeadlineSeconds: 300
+  template:
+    metadata:
+      labels:
+        app: flask-app
+      annotations:
+        kubernetes.io/change-cause: "Initial release"
+    spec:
+      containers:
+        - name: my-flask-app
+          image: dwade235/flask-app
+          ports:
+            - containerPort: 5000
