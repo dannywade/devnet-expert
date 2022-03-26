@@ -1,0 +1,2 @@
+environment = prod
+debug_level = 5

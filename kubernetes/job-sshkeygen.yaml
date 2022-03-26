@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+# Jobs are created to do one-time tasks (i.e. DB migration or batch job)
+kind: Job
+metadata:
+  name: parallel-job
+  labels:
+    chapters: jobs
+spec:
+  # Run only 5 pods at a time
+  parallelism: 5
+  # Each pod will run the job 10 times (i.e. generate 10 keys)
+  completions: 10
+  template:
+    metadata:
+      labels:
+        chapters: job
+    spec:
+      containers:
+        - name: kuard
+          image: gcr.io/kuar-demo/kuard-amd64:blue
+          imagePullPolicy: Always
+          args:
+            - "--keygen-enable"
+            - "--keygen-exit-on-complete"
+            - "--keygen-num-to-gen=10"
+      restartPolicy: OnFailure
