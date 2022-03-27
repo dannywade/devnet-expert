@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: ReplicaSet
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ghost
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: ghost
+  template:
+    metadata:
+      labels:
+        run: ghost
+    spec:
+      containers:
+        - name: ghost-app
+          image: ghost
+          command:
+            - sh
+            - -c
+            # Copies only the JS config file into the dir that Ghost is looking for its config
+            - cp /ghost-config/ghost-config.js /var/lib/ghost/config.js && /usr/local/bin/docker-entrypoint.sh node current/index.js
+          volumeMounts:
+            - mountPath: /ghost-config
+              name: config
+      volumes:
+        - name: config
+          configMap:
+            defaultMode: 420
+            # Name of Config Map to use (has JS config stored in it)
+            name: ghost-config
+
+# Expose Deployment as a service:
+  # kubectl expose deployments ghost --port=2368
+
+# Once exposed, use the following command to expose the service:
+  # kubectl proxy
+
+# Access ghost service:
+  # http://localhost:8001/api/v1/namespaces/default/services/ghost/proxy/

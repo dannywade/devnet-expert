@@ -1,0 +1,53 @@
+# Create Jupyter Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: jupyter
+---
+# Create Jupyter Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # Deployment Labels
+  labels:
+    run: jupyter
+  name: jupyter
+  namespace: jupyter
+spec:
+  replicas: 1
+  # Labels for ReplicaSet (managed by Deployment) to match on
+  selector:
+    matchLabels:
+      run: jupyter
+  template:
+    metadata:
+      # Labels assigned to created pods
+      labels:
+        run: jupyter
+    spec:
+      containers:
+        - name: jupyter-pod
+          image: jupyter/scipy-notebook
+          # By default, container port 8888 is exposed, this is more verbose
+          ports:
+            - containerPort: 8888
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+
+# Usage:
+# Forward Jupyter pod port to localhost using the below commands:
+
+# 1. kubectl get pods -n jupyter (Copy the running pod's name)
+
+# 2. Create a variable for the pod's name
+  # pod_name='<pod_name_here>'
+  # *Include the single quotes, as that indicates a string value
+
+# 3. Find the token in the pod's logs. This is required to access the Jupyter dashboard
+  # kubectl logs -n jupyter ${pod_name}
+
+# 4. Forward pod's exposed port to the host
+  # kubectl port-forward ${pod_name} 8888:8888 -n jupyter
+
+# 5. Navigate to localhost:8888 to view the Jupyter dashboard
+  # In browser: localhost:8888?token=<token_goes_here>
