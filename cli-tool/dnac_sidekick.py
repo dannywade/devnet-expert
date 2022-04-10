@@ -18,7 +18,6 @@ Use --help to check available commands and options.
 Feel free to open a PR or fork the project to modify to your needs.
 """
 
-from ast import Pass
 import click
 import requests
 from requests.auth import HTTPBasicAuth
