@@ -1,5 +1,23 @@
 #!/usr/bin/env python
 
+"""DNAC Sidekick
+
+A simple CLI app built on the Click library to interact with Cisco DNA Center.
+
+Currently, there's limited functionality, as this was built as part of a learning exercise.
+
+Here are the current features/functions of the tool:
+    * Get device information for all of DNAC's inventory or just a specific device
+      (via hostname)
+    * Get device health statistics for all devices
+    * Get client health statistics for all clients or just a specific client
+      (via the client's MAC address)
+
+Use --help to check available commands and options.
+
+Feel free to open a PR or fork the project to modify to your needs.
+"""
+
 from ast import Pass
 import click
 import requests
