@@ -6,3 +6,4 @@ config.py
 .terraform*
 *.tfstate
 *.tfstate.*
+.env
