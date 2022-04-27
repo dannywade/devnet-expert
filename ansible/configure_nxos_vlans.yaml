@@ -24,3 +24,8 @@
       loop: "{{ vlans }}"
       when: ansible_network_os == 'nxos'
 
+    - name: Save config
+      nxos_config:
+        save_when: always
+      when: ansible_network_os == 'nxos'
+

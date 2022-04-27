@@ -2,3 +2,4 @@
   ios_config:
     lines:
       - logging host 10.1.1.1
+    save_when: always
