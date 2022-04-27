@@ -1,0 +1,12 @@
+ospf:
+  process_id: 100
+  networks:
+    - area: 0
+      network: 10.0.0.0/8
+      wildcard: 0.0.0.255
+
+vlans:
+  - id: 100
+    name: DATA
+  - id: 200
+    name: VOICE

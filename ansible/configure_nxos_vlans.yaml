@@ -1,0 +1,26 @@
+---
+- name: Configure Nexus switches
+  hosts: switches
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: Print NXOS facts
+      nxos_facts:
+        gather_subset: all
+      when: ansible_network_os == 'nxos'
+    
+    - name: Print facts
+      debug:
+        msg: "{{ ansible_facts }}"
+      when: ansible_network_os == 'nxos'
+
+    - name: Configuring VLANs
+      nxos_vlans:
+        config:
+          - enabled: yes
+            vlan_id: "{{ item.id }}"
+            name: "{{ item.name }}"
+      loop: "{{ vlans }}"
+      when: ansible_network_os == 'nxos'
+

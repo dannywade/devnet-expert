@@ -1,0 +1,7 @@
+bgp:
+  asn: 65003
+  neighbors:
+    - neighbor_ip: 10.250.1.1
+      remote_asn: 65001
+    - neighbor_ip: 10.250.1.2
+      remote_asn: 65002

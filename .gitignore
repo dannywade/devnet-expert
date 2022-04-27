@@ -7,3 +7,5 @@ config.py
 *.tfstate
 *.tfstate.*
 .env
+facts
+.DS_Store

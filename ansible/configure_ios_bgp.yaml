@@ -1,0 +1,28 @@
+---
+- name: Configure BGP
+  hosts: routers
+  gather_facts: true
+  connection: network_cli
+
+  tasks:
+    - include_role:
+        name: cisco_ios
+
+    - name: Configure BGP
+      ios_bgp:
+        config:
+          bgp_as: "{{ bgp.asn }}"
+          neighbors:
+            - neighbor: "{{ item.neighbor_ip }}"
+              remote_as: "{{ item.remote_asn }}"
+        # operation: delete
+        
+      loop: "{{ bgp.neighbors }}"
+      register: bgp_configuration
+      when: ansible_network_os == 'ios'
+
+    - name: Printing out new BGP configuration on
+      debug:
+        var: bgp_configuration
+      when: ansible_network_os == 'ios'
+

@@ -1,10 +1,10 @@
 testbed:
   credentials:
     default:
-      username: %ENV{PYATS_USER}
-      password: %ENV{PYATS_PASS}
+      username: "%ENV{PYATS_USER}"
+      password: "%ENV{PYATS_PASS}"
     enable:
-      password: %ENV{PYATS_ENABLE_PASS}
+      password: "%ENV{PYATS_ENABLE_PASS}"
 
 devices:
   yang-r1:

@@ -1,5 +1,11 @@
 ---
-- name: Print output
-  debug:
-    # Can also pass in variable names as well, instead of hardcoding
-    var: output
+
+- name: IOS Facts
+  hosts: routers
+  gather_facts: true
+  connection: network_cli
+
+  tasks:
+  - name: Print device facts
+    debug:
+      var: ansible_facts 
