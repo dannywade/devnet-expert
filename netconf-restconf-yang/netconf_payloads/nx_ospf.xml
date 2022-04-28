@@ -1,0 +1,24 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="101">
+  <edit-config>
+    <target>
+      <running/>
+    </target>
+    <config>
+      <System xmlns="http://cisco.com/ns/yang/cisco-nx-os-device">
+        <ospf-items>
+          <inst-items>
+            <Inst-list>
+              <name>100</name>
+              <dom-items>
+                <Dom-list>
+                  <name>default</name>
+                  <rtrId>1.1.1.1</rtrId>
+                </Dom-list>
+              </dom-items>
+            </Inst-list>
+          </inst-items>
+        </ospf-items>
+      </System>
+    </config>
+  </edit-config>
+</rpc>

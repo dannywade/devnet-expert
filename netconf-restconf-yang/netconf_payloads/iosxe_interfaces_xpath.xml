@@ -1,0 +1,590 @@
+<rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="101">
+  <data>
+    <interfaces xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-interfaces-oper">
+      <interface>
+        <name>GigabitEthernet1</name>
+        <interface-type>iana-iftype-ethernet-csmacd</interface-type>
+        <admin-status>if-state-up</admin-status>
+        <oper-status>if-oper-state-ready</oper-status>
+        <last-change>2022-04-28T14:50:56.689+00:00</last-change>
+        <if-index>1</if-index>
+        <phys-address>52:54:00:05:f3:21</phys-address>
+        <speed>1000000000</speed>
+        <statistics>
+          <discontinuity-time>2022-04-28T14:48:40+00:00</discontinuity-time>
+          <in-octets>7337610</in-octets>
+          <in-unicast-pkts>36766</in-unicast-pkts>
+          <in-broadcast-pkts>0</in-broadcast-pkts>
+          <in-multicast-pkts>0</in-multicast-pkts>
+          <in-discards>0</in-discards>
+          <in-errors>0</in-errors>
+          <in-unknown-protos>0</in-unknown-protos>
+          <out-octets>5368497</out-octets>
+          <out-unicast-pkts>10258</out-unicast-pkts>
+          <out-broadcast-pkts>0</out-broadcast-pkts>
+          <out-multicast-pkts>0</out-multicast-pkts>
+          <out-discards>0</out-discards>
+          <out-errors>0</out-errors>
+          <rx-pps>1</rx-pps>
+          <rx-kbps>1</rx-kbps>
+          <tx-pps>0</tx-pps>
+          <tx-kbps>0</tx-kbps>
+          <num-flaps>0</num-flaps>
+          <in-crc-errors>0</in-crc-errors>
+          <in-discards-64>0</in-discards-64>
+          <in-errors-64>0</in-errors-64>
+          <in-unknown-protos-64>0</in-unknown-protos-64>
+          <out-octets-64>5368497</out-octets-64>
+        </statistics>
+        <vrf/>
+        <ipv4>192.168.7.160</ipv4>
+        <ipv4-subnet-mask>255.255.255.0</ipv4-subnet-mask>
+        <description/>
+        <mtu>1500</mtu>
+        <input-security-acl/>
+        <output-security-acl/>
+        <v4-protocol-stats>
+          <in-pkts>29654</in-pkts>
+          <in-octets>6108532</in-octets>
+          <in-error-pkts>0</in-error-pkts>
+          <in-forwarded-pkts>0</in-forwarded-pkts>
+          <in-forwarded-octets>0</in-forwarded-octets>
+          <in-discarded-pkts>0</in-discarded-pkts>
+          <out-pkts>9794</out-pkts>
+          <out-octets>5340663</out-octets>
+          <out-error-pkts>0</out-error-pkts>
+          <out-forwarded-pkts>9794</out-forwarded-pkts>
+          <out-forwarded-octets>0</out-forwarded-octets>
+          <out-discarded-pkts>0</out-discarded-pkts>
+        </v4-protocol-stats>
+        <v6-protocol-stats>
+          <in-pkts>0</in-pkts>
+          <in-octets>0</in-octets>
+          <in-error-pkts>0</in-error-pkts>
+          <in-forwarded-pkts>0</in-forwarded-pkts>
+          <in-forwarded-octets>0</in-forwarded-octets>
+          <in-discarded-pkts>0</in-discarded-pkts>
+          <out-pkts>0</out-pkts>
+          <out-octets>0</out-octets>
+          <out-error-pkts>0</out-error-pkts>
+          <out-forwarded-pkts>0</out-forwarded-pkts>
+          <out-forwarded-octets>0</out-forwarded-octets>
+          <out-discarded-pkts>0</out-discarded-pkts>
+        </v6-protocol-stats>
+        <bia-address>52:54:00:05:f3:21</bia-address>
+        <ipv4-tcp-adjust-mss>0</ipv4-tcp-adjust-mss>
+        <ipv6-tcp-adjust-mss>0</ipv6-tcp-adjust-mss>
+        <storm-control>
+          <broadcast>
+            <filter-state>inactive</filter-state>
+          </broadcast>
+          <multicast>
+            <filter-state>inactive</filter-state>
+          </multicast>
+          <unicast>
+            <filter-state>inactive</filter-state>
+          </unicast>
+          <unknown-unicast>
+            <filter-state>inactive</filter-state>
+          </unknown-unicast>
+        </storm-control>
+        <ether-state>
+          <negotiated-duplex-mode>full-duplex</negotiated-duplex-mode>
+          <negotiated-port-speed>speed-1gb</negotiated-port-speed>
+          <auto-negotiate>true</auto-negotiate>
+          <enable-flow-control>false</enable-flow-control>
+          <media-type>ether-media-type-virtual</media-type>
+        </ether-state>
+        <ether-stats>
+          <in-mac-control-frames>0</in-mac-control-frames>
+          <in-mac-pause-frames>0</in-mac-pause-frames>
+          <in-oversize-frames>0</in-oversize-frames>
+          <in-jabber-frames>0</in-jabber-frames>
+          <in-fragment-frames>0</in-fragment-frames>
+          <in-8021q-frames>0</in-8021q-frames>
+          <out-mac-control-frames>0</out-mac-control-frames>
+          <out-mac-pause-frames>0</out-mac-pause-frames>
+          <out-8021q-frames>0</out-8021q-frames>
+        </ether-stats>
+      </interface>
+    </interfaces>
+    <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+      <interface>
+        <name>GigabitEthernet1</name>
+        <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+        <enabled>true</enabled>
+        <ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip">
+          <address>
+            <ip>192.168.7.160</ip>
+            <netmask>255.255.255.0</netmask>
+          </address>
+        </ipv4>
+        <ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+      </interface>
+    </interfaces>
+    <interfaces xmlns="http://openconfig.net/yang/interfaces">
+      <interface>
+        <name>GigabitEthernet1</name>
+        <config>
+          <name>GigabitEthernet1</name>
+          <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+          <enabled>true</enabled>
+        </config>
+        <state>
+          <name>GigabitEthernet1</name>
+          <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+          <enabled>true</enabled>
+          <ifindex>1</ifindex>
+          <admin-status>UP</admin-status>
+          <oper-status>UP</oper-status>
+          <last-change>1651157456689000000</last-change>
+          <counters>
+            <in-octets>7337610</in-octets>
+            <in-unicast-pkts>36766</in-unicast-pkts>
+            <in-broadcast-pkts>0</in-broadcast-pkts>
+            <in-multicast-pkts>0</in-multicast-pkts>
+            <in-discards>0</in-discards>
+            <in-errors>0</in-errors>
+            <in-unknown-protos>0</in-unknown-protos>
+            <in-fcs-errors>0</in-fcs-errors>
+            <out-octets>5368497</out-octets>
+            <out-unicast-pkts>10258</out-unicast-pkts>
+            <out-broadcast-pkts>0</out-broadcast-pkts>
+            <out-multicast-pkts>0</out-multicast-pkts>
+            <out-discards>0</out-discards>
+            <out-errors>0</out-errors>
+            <last-clear>1651157320000000000</last-clear>
+          </counters>
+        </state>
+        <subinterfaces>
+          <subinterface>
+            <index>0</index>
+            <config>
+              <index>0</index>
+              <enabled>true</enabled>
+            </config>
+            <state>
+              <enabled>true</enabled>
+              <name>GigabitEthernet1</name>
+              <ifindex>1</ifindex>
+              <admin-status>UP</admin-status>
+              <oper-status>UP</oper-status>
+              <last-change>1651157456689000000</last-change>
+              <counters>
+                <in-octets>7337610</in-octets>
+                <in-unicast-pkts>36766</in-unicast-pkts>
+                <in-broadcast-pkts>0</in-broadcast-pkts>
+                <in-multicast-pkts>0</in-multicast-pkts>
+                <in-discards>0</in-discards>
+                <in-errors>0</in-errors>
+                <in-unknown-protos>0</in-unknown-protos>
+                <in-fcs-errors>0</in-fcs-errors>
+                <out-octets>5368497</out-octets>
+                <out-unicast-pkts>10258</out-unicast-pkts>
+                <out-broadcast-pkts>0</out-broadcast-pkts>
+                <out-multicast-pkts>0</out-multicast-pkts>
+                <out-discards>0</out-discards>
+                <out-errors>0</out-errors>
+                <last-clear>1651157320000000000</last-clear>
+              </counters>
+            </state>
+            <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+              <addresses>
+                <address>
+                  <ip>192.168.7.160</ip>
+                  <config>
+                    <ip>192.168.7.160</ip>
+                    <prefix-length>24</prefix-length>
+                  </config>
+                  <state>
+                    <ip>192.168.7.160</ip>
+                    <prefix-length>24</prefix-length>
+                  </state>
+                </address>
+              </addresses>
+              <proxy-arp>
+                <state>
+                  <mode>DISABLE</mode>
+                </state>
+              </proxy-arp>
+              <state>
+                <counters>
+                  <in-pkts>29654</in-pkts>
+                  <in-octets>6108532</in-octets>
+                  <in-error-pkts>0</in-error-pkts>
+                  <in-forwarded-pkts>0</in-forwarded-pkts>
+                  <in-forwarded-octets>0</in-forwarded-octets>
+                  <in-discarded-pkts>0</in-discarded-pkts>
+                  <out-pkts>9794</out-pkts>
+                  <out-octets>5340663</out-octets>
+                  <out-error-pkts>0</out-error-pkts>
+                  <out-forwarded-pkts>9794</out-forwarded-pkts>
+                  <out-forwarded-octets>0</out-forwarded-octets>
+                  <out-discarded-pkts>0</out-discarded-pkts>
+                </counters>
+              </state>
+            </ipv4>
+            <ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+              <config>
+                <enabled>false</enabled>
+              </config>
+              <state>
+                <enabled>false</enabled>
+                <counters>
+                  <in-pkts>0</in-pkts>
+                  <in-octets>0</in-octets>
+                  <in-error-pkts>0</in-error-pkts>
+                  <in-forwarded-pkts>0</in-forwarded-pkts>
+                  <in-forwarded-octets>0</in-forwarded-octets>
+                  <in-discarded-pkts>0</in-discarded-pkts>
+                  <out-pkts>0</out-pkts>
+                  <out-octets>0</out-octets>
+                  <out-error-pkts>0</out-error-pkts>
+                  <out-forwarded-pkts>0</out-forwarded-pkts>
+                  <out-forwarded-octets>0</out-forwarded-octets>
+                  <out-discarded-pkts>0</out-discarded-pkts>
+                </counters>
+              </state>
+            </ipv6>
+          </subinterface>
+        </subinterfaces>
+        <ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+          <config>
+            <mac-address>52:54:00:05:f3:21</mac-address>
+            <auto-negotiate>true</auto-negotiate>
+            <enable-flow-control>true</enable-flow-control>
+          </config>
+          <state>
+            <mac-address>52:54:00:05:f3:21</mac-address>
+            <auto-negotiate>true</auto-negotiate>
+            <port-speed>SPEED_1GB</port-speed>
+            <enable-flow-control>false</enable-flow-control>
+            <hw-mac-address>52:54:00:05:f3:21</hw-mac-address>
+            <negotiated-duplex-mode>FULL</negotiated-duplex-mode>
+            <negotiated-port-speed>SPEED_1GB</negotiated-port-speed>
+            <counters>
+              <in-mac-control-frames>0</in-mac-control-frames>
+              <in-mac-pause-frames>0</in-mac-pause-frames>
+              <in-oversize-frames>0</in-oversize-frames>
+              <in-jabber-frames>0</in-jabber-frames>
+              <in-fragment-frames>0</in-fragment-frames>
+              <in-8021q-frames>0</in-8021q-frames>
+              <in-crc-errors>0</in-crc-errors>
+              <out-mac-control-frames>0</out-mac-control-frames>
+              <out-mac-pause-frames>0</out-mac-pause-frames>
+              <out-8021q-frames>0</out-8021q-frames>
+            </counters>
+          </state>
+        </ethernet>
+      </interface>
+    </interfaces>
+  </data>
+</rpc-reply>
+
+<!-- xmltodict output -->
+{
+    "rpc-reply": {
+        "@xmlns": "urn:ietf:params:xml:ns:netconf:base:1.0",
+        "@message-id": "101",
+        "data": {
+            "interfaces": [
+                {
+                    "@xmlns": "http://cisco.com/ns/yang/Cisco-IOS-XE-interfaces-oper",
+                    "interface": {
+                        "name": "GigabitEthernet1",
+                        "interface-type": "iana-iftype-ethernet-csmacd",
+                        "admin-status": "if-state-up",
+                        "oper-status": "if-oper-state-ready",
+                        "last-change": "2022-04-28T14:50:56.689+00:00",
+                        "if-index": "1",
+                        "phys-address": "52:54:00:05:f3:21",
+                        "speed": "1000000000",
+                        "statistics": {
+                            "discontinuity-time": "2022-04-28T14:48:40+00:00",
+                            "in-octets": "7337610",
+                            "in-unicast-pkts": "36766",
+                            "in-broadcast-pkts": "0",
+                            "in-multicast-pkts": "0",
+                            "in-discards": "0",
+                            "in-errors": "0",
+                            "in-unknown-protos": "0",
+                            "out-octets": "5368497",
+                            "out-unicast-pkts": "10258",
+                            "out-broadcast-pkts": "0",
+                            "out-multicast-pkts": "0",
+                            "out-discards": "0",
+                            "out-errors": "0",
+                            "rx-pps": "1",
+                            "rx-kbps": "1",
+                            "tx-pps": "0",
+                            "tx-kbps": "0",
+                            "num-flaps": "0",
+                            "in-crc-errors": "0",
+                            "in-discards-64": "0",
+                            "in-errors-64": "0",
+                            "in-unknown-protos-64": "0",
+                            "out-octets-64": "5368497"
+                        },
+                        "vrf": null,
+                        "ipv4": "192.168.7.160",
+                        "ipv4-subnet-mask": "255.255.255.0",
+                        "description": null,
+                        "mtu": "1500",
+                        "input-security-acl": null,
+                        "output-security-acl": null,
+                        "v4-protocol-stats": {
+                            "in-pkts": "29654",
+                            "in-octets": "6108532",
+                            "in-error-pkts": "0",
+                            "in-forwarded-pkts": "0",
+                            "in-forwarded-octets": "0",
+                            "in-discarded-pkts": "0",
+                            "out-pkts": "9794",
+                            "out-octets": "5340663",
+                            "out-error-pkts": "0",
+                            "out-forwarded-pkts": "9794",
+                            "out-forwarded-octets": "0",
+                            "out-discarded-pkts": "0"
+                        },
+                        "v6-protocol-stats": {
+                            "in-pkts": "0",
+                            "in-octets": "0",
+                            "in-error-pkts": "0",
+                            "in-forwarded-pkts": "0",
+                            "in-forwarded-octets": "0",
+                            "in-discarded-pkts": "0",
+                            "out-pkts": "0",
+                            "out-octets": "0",
+                            "out-error-pkts": "0",
+                            "out-forwarded-pkts": "0",
+                            "out-forwarded-octets": "0",
+                            "out-discarded-pkts": "0"
+                        },
+                        "bia-address": "52:54:00:05:f3:21",
+                        "ipv4-tcp-adjust-mss": "0",
+                        "ipv6-tcp-adjust-mss": "0",
+                        "storm-control": {
+                            "broadcast": {
+                                "filter-state": "inactive"
+                            },
+                            "multicast": {
+                                "filter-state": "inactive"
+                            },
+                            "unicast": {
+                                "filter-state": "inactive"
+                            },
+                            "unknown-unicast": {
+                                "filter-state": "inactive"
+                            }
+                        },
+                        "ether-state": {
+                            "negotiated-duplex-mode": "full-duplex",
+                            "negotiated-port-speed": "speed-1gb",
+                            "auto-negotiate": "true",
+                            "enable-flow-control": "false",
+                            "media-type": "ether-media-type-virtual"
+                        },
+                        "ether-stats": {
+                            "in-mac-control-frames": "0",
+                            "in-mac-pause-frames": "0",
+                            "in-oversize-frames": "0",
+                            "in-jabber-frames": "0",
+                            "in-fragment-frames": "0",
+                            "in-8021q-frames": "0",
+                            "out-mac-control-frames": "0",
+                            "out-mac-pause-frames": "0",
+                            "out-8021q-frames": "0"
+                        }
+                    }
+                },
+                {
+                    "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-interfaces",
+                    "interface": {
+                        "name": "GigabitEthernet1",
+                        "type": {
+                            "@xmlns:ianaift": "urn:ietf:params:xml:ns:yang:iana-if-type",
+                            "#text": "ianaift:ethernetCsmacd"
+                        },
+                        "enabled": "true",
+                        "ipv4": {
+                            "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-ip",
+                            "address": {
+                                "ip": "192.168.7.160",
+                                "netmask": "255.255.255.0"
+                            }
+                        },
+                        "ipv6": {
+                            "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-ip"
+                        }
+                    }
+                },
+                {
+                    "@xmlns": "http://openconfig.net/yang/interfaces",
+                    "interface": {
+                        "name": "GigabitEthernet1",
+                        "config": {
+                            "name": "GigabitEthernet1",
+                            "type": {
+                                "@xmlns:ianaift": "urn:ietf:params:xml:ns:yang:iana-if-type",
+                                "#text": "ianaift:ethernetCsmacd"
+                            },
+                            "enabled": "true"
+                        },
+                        "state": {
+                            "name": "GigabitEthernet1",
+                            "type": {
+                                "@xmlns:ianaift": "urn:ietf:params:xml:ns:yang:iana-if-type",
+                                "#text": "ianaift:ethernetCsmacd"
+                            },
+                            "enabled": "true",
+                            "ifindex": "1",
+                            "admin-status": "UP",
+                            "oper-status": "UP",
+                            "last-change": "1651157456689000000",
+                            "counters": {
+                                "in-octets": "7337610",
+                                "in-unicast-pkts": "36766",
+                                "in-broadcast-pkts": "0",
+                                "in-multicast-pkts": "0",
+                                "in-discards": "0",
+                                "in-errors": "0",
+                                "in-unknown-protos": "0",
+                                "in-fcs-errors": "0",
+                                "out-octets": "5368497",
+                                "out-unicast-pkts": "10258",
+                                "out-broadcast-pkts": "0",
+                                "out-multicast-pkts": "0",
+                                "out-discards": "0",
+                                "out-errors": "0",
+                                "last-clear": "1651157320000000000"
+                            }
+                        },
+                        "subinterfaces": {
+                            "subinterface": {
+                                "index": "0",
+                                "config": {
+                                    "index": "0",
+                                    "enabled": "true"
+                                },
+                                "state": {
+                                    "enabled": "true",
+                                    "name": "GigabitEthernet1",
+                                    "ifindex": "1",
+                                    "admin-status": "UP",
+                                    "oper-status": "UP",
+                                    "last-change": "1651157456689000000",
+                                    "counters": {
+                                        "in-octets": "7337610",
+                                        "in-unicast-pkts": "36766",
+                                        "in-broadcast-pkts": "0",
+                                        "in-multicast-pkts": "0",
+                                        "in-discards": "0",
+                                        "in-errors": "0",
+                                        "in-unknown-protos": "0",
+                                        "in-fcs-errors": "0",
+                                        "out-octets": "5368497",
+                                        "out-unicast-pkts": "10258",
+                                        "out-broadcast-pkts": "0",
+                                        "out-multicast-pkts": "0",
+                                        "out-discards": "0",
+                                        "out-errors": "0",
+                                        "last-clear": "1651157320000000000"
+                                    }
+                                },
+                                "ipv4": {
+                                    "@xmlns": "http://openconfig.net/yang/interfaces/ip",
+                                    "addresses": {
+                                        "address": {
+                                            "ip": "192.168.7.160",
+                                            "config": {
+                                                "ip": "192.168.7.160",
+                                                "prefix-length": "24"
+                                            },
+                                            "state": {
+                                                "ip": "192.168.7.160",
+                                                "prefix-length": "24"
+                                            }
+                                        }
+                                    },
+                                    "proxy-arp": {
+                                        "state": {
+                                            "mode": "DISABLE"
+                                        }
+                                    },
+                                    "state": {
+                                        "counters": {
+                                            "in-pkts": "29654",
+                                            "in-octets": "6108532",
+                                            "in-error-pkts": "0",
+                                            "in-forwarded-pkts": "0",
+                                            "in-forwarded-octets": "0",
+                                            "in-discarded-pkts": "0",
+                                            "out-pkts": "9794",
+                                            "out-octets": "5340663",
+                                            "out-error-pkts": "0",
+                                            "out-forwarded-pkts": "9794",
+                                            "out-forwarded-octets": "0",
+                                            "out-discarded-pkts": "0"
+                                        }
+                                    }
+                                },
+                                "ipv6": {
+                                    "@xmlns": "http://openconfig.net/yang/interfaces/ip",
+                                    "config": {
+                                        "enabled": "false"
+                                    },
+                                    "state": {
+                                        "enabled": "false",
+                                        "counters": {
+                                            "in-pkts": "0",
+                                            "in-octets": "0",
+                                            "in-error-pkts": "0",
+                                            "in-forwarded-pkts": "0",
+                                            "in-forwarded-octets": "0",
+                                            "in-discarded-pkts": "0",
+                                            "out-pkts": "0",
+                                            "out-octets": "0",
+                                            "out-error-pkts": "0",
+                                            "out-forwarded-pkts": "0",
+                                            "out-forwarded-octets": "0",
+                                            "out-discarded-pkts": "0"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "ethernet": {
+                            "@xmlns": "http://openconfig.net/yang/interfaces/ethernet",
+                            "config": {
+                                "mac-address": "52:54:00:05:f3:21",
+                                "auto-negotiate": "true",
+                                "enable-flow-control": "true"
+                            },
+                            "state": {
+                                "mac-address": "52:54:00:05:f3:21",
+                                "auto-negotiate": "true",
+                                "port-speed": "SPEED_1GB",
+                                "enable-flow-control": "false",
+                                "hw-mac-address": "52:54:00:05:f3:21",
+                                "negotiated-duplex-mode": "FULL",
+                                "negotiated-port-speed": "SPEED_1GB",
+                                "counters": {
+                                    "in-mac-control-frames": "0",
+                                    "in-mac-pause-frames": "0",
+                                    "in-oversize-frames": "0",
+                                    "in-jabber-frames": "0",
+                                    "in-fragment-frames": "0",
+                                    "in-8021q-frames": "0",
+                                    "in-crc-errors": "0",
+                                    "out-mac-control-frames": "0",
+                                    "out-mac-pause-frames": "0",
+                                    "out-8021q-frames": "0"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
