@@ -16,6 +16,7 @@
 - `Cisco-IOS-XE-mdt-cfg` YANG module to configure via NETCONF
 - No need to specify keys in XPath for telemetry.
     - Example: `/bgp-ios-xe-oper:bgp-state-data/neighbors/neighbor/up-time` (did not specify neighbor)
+- Verify connection to receiver: `show telemetry internal connection`
 - Check IOS-XE examples here: 
     - [gRPC BGP dial-out example](grpc-dial-out/example_bgp_oper.xml)
     - [gRPC CPU dial-out example](grpc-dial-out/example_cpu_oper.xml)
