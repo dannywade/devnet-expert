@@ -1,0 +1,46 @@
+<!-- Creating the dynamic subscription (Periodic) -->
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="101">
+  <establish-subscription xmlns="urn:ietf:params:xml:ns:yang:ietf-event-notifications">
+    <stream xmlns:yp="urn:ietf:params:xml:ns:yang:ietf-yang-push">yp:yang-push</stream>
+    <xpath-filter xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-push">/memory-ios-xe-oper:memory-statistics/memory-statistic</xpath-filter>
+    <period xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-push">1000</period>
+  </establish-subscription>
+</rpc>
+
+
+
+<!-- Returned payload -->
+<notification xmlns="urn:ietf:params:xml:ns:netconf:notification:1.0">
+  <eventTime>2022-04-29T13:09:56.44Z</eventTime>
+  <push-update xmlns="urn:ietf:params:xml:ns:yang:ietf-yang-push">
+    <subscription-id>2147483649</subscription-id>
+    <datastore-contents-xml>
+      <memory-statistics xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-memory-oper">
+        <memory-statistic>
+          <name>Processor</name>
+          <total-memory>1131740988</total-memory>
+          <used-memory>255966192</used-memory>
+          <free-memory>875774796</free-memory>
+          <lowest-usage>873677204</lowest-usage>
+          <highest-usage>576186448</highest-usage>
+        </memory-statistic>
+        <memory-statistic>
+          <name>reserve Processor</name>
+          <total-memory>102404</total-memory>
+          <used-memory>92</used-memory>
+          <free-memory>102312</free-memory>
+          <lowest-usage>102312</lowest-usage>
+          <highest-usage>102312</highest-usage>
+        </memory-statistic>
+        <memory-statistic>
+          <name>lsmpi_io</name>
+          <total-memory>3149400</total-memory>
+          <used-memory>3148576</used-memory>
+          <free-memory>824</free-memory>
+          <lowest-usage>824</lowest-usage>
+          <highest-usage>412</highest-usage>
+        </memory-statistic>
+      </memory-statistics>
+    </datastore-contents-xml>
+  </push-update>
+</notification>
