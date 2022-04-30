@@ -3,6 +3,7 @@
 - Not configured into the running-config
 
 ### NETCONF Dial-in
+- NETCONF can only be used as a transport of dynamic subscriptions (IOS-XE 17.3 docs)
 - `<establish-subscription>` RPC
 - `IETF-event-notification` YANG module
 - XPath filter format: `/prefix:xpath` (check node properties in YANG Suite)
@@ -11,6 +12,8 @@
 - Check IOS-XE example here: [NETCONF dial-in example](netconf-dial-in/example_memory_oper.xml)
 
 ### gRPC Dial-out
+- gRPC transport is only available for configured subscriptions (IOS-XE 17.3 docs)
+- Only kvGPB encoding is supported with gRPC
 - Can be configured via CLI or NETCONF RPC message
 - Only Key-value Google Protocol Buffers (kvGPB) encoding supported with gRPC transport
 - `Cisco-IOS-XE-mdt-cfg` YANG module to configure via NETCONF

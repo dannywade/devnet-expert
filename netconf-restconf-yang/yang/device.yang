@@ -1,0 +1,90 @@
+// Must include the following:
+// - list = table / leafs are columns
+// - leaf-list = array
+// - data types
+// - leaf references = path to another leaf value
+// - single argument 'when' condition
+// - single argument 'must' condition
+
+module device {
+    namespace "http://devnetdan.com";
+    prefix "devnetdan";
+    
+    import ietf-inet-types {
+        prefix inet;
+    }
+    
+    organization "DevNet Dan";
+    contact "dan@devnetdan.com";
+    description "The module is used for learning purposes.";
+    
+    revision 2022-04-29 {
+        description "Initial revision";
+    }
+    
+    typedef mtu-size {
+        type uint16 {
+            range 0..1500;
+        }
+        description "MTU size";
+    }
+    
+    container device {
+        description "Network device";
+        leaf hostname {
+            type string;
+            description "Hostname of the device";
+        }
+        
+        list interface {
+            key "name";
+            description "Interfaces on device";
+            leaf name {
+                type string;
+                description "Interface name";
+            }
+            
+            leaf type {
+                type enumeration {
+                    enum ethernet;
+                    enum atm;
+                }
+                description "Interface type";
+            }
+            
+            leaf mtu {
+                type mtu-size;
+                description "Interface MTU";
+            }
+            
+            leaf enabled {
+                type boolean;
+                description "Interface admin up/down status";
+            }
+            
+            leaf ip-addr {
+                type inet:ip-address;
+                must "starts-with(current(), '10')" {
+                    error-message "The IP address must be in the 10.0.0.0/8 address space";
+                }
+                description "IP address of interface";
+            }
+        }
+        
+        leaf mgmt-interface {
+            type leafref {
+                // Refers to an existing interface name
+                path "../interface/name";
+            }
+            description "Management interface of the device";
+        }
+        
+        // Supports multiple cipher types
+        leaf-list cipher {
+            type string;
+            default "rsa-with-aes-256-cbc-sha";
+            description "List of available ciphers";
+        }
+        
+    }
+}
