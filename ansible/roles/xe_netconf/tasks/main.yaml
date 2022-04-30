@@ -1,0 +1,7 @@
+---
+
+- name: Get NTP servers
+  netconf_get:
+    display: xml
+    filter: /ntp/server
+    source: running

@@ -1,0 +1,10 @@
+---
+- name: Get NTP servers via RESTCONF
+  hosts: r1
+  gather_facts: false
+  connection: httpapi
+
+  tasks:
+    - include_role:
+        name: xe_rest
+

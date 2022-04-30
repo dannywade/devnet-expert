@@ -1,0 +1,16 @@
+---
+
+- name: Configure NTP Servers
+  restconf_config:
+    method: post
+    format: json
+    path: /data/Cisco-IOS-XE-native:native/ntp/server
+    content: |
+            {
+                "server-list": [
+                    {
+                        "ip-address": "10.60.1.1"
+                    }
+                ]
+            }
+
