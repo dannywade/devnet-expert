@@ -1,0 +1,39 @@
+[
+    {
+        "Name": "custom-net01",
+        "Id": "aca0b4145253acd2a437c8c806515f7b57aff3cc242314341287e660b85a853e",
+        "Created": "2022-05-26T23:38:43.842773587Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.28.0.0/16",
+                    "IPRange": "172.28.5.0/24",
+                    "Gateway": "172.28.5.254"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "1963c3f1206e81acc5c1a2f7afa081f6bc327e0ba3f89a72a26630f00f428fbf": {
+                "Name": "nginx02",
+                "EndpointID": "9b236a35e1b6f97cb903ab073ab7acda366857817ec4993d41aa2d443d50929a",
+                "MacAddress": "02:42:ac:1c:05:00",
+                "IPv4Address": "172.28.5.0/16",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {},
+        "Labels": {}
+    }
+]

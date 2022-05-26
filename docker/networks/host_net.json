@@ -1,0 +1,33 @@
+[
+    {
+        "Name": "host",
+        "Id": "e6cb47bd6a2b6f41eef4b3291098748cc5ae6208e3f22d817145e21cdaeba362",
+        "Created": "2020-11-13T15:16:44.773155771-05:00",
+        "Scope": "local",
+        "Driver": "host",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": []
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "9ae2a9de0e37b3476fb9b3fa31f14353ee1ee6dc3228b7b3391c5991fa3a30af": {
+                "Name": "nginx01",
+                "EndpointID": "a29f34e8070af5e358d1e6f25107b2c99501cd420c90cba19b97513ab065f3ff",
+                "MacAddress": "",
+                "IPv4Address": "",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {},
+        "Labels": {}
+    }
+]

@@ -1,0 +1,38 @@
+[
+    {
+        "Name": "dans-net",
+        "Id": "8171fd7ca315f8db0b2edf7bffc1c40de3d6f0e9d6afc712aed0728ad6546380",
+        "Created": "2022-03-15T00:38:40.168546035Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.20.0.0/16",
+                    "Gateway": "172.20.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "8214ff81c8bbea15ec067007f67cf94924514c60413f35253da657a5aeb3a4d3": {
+                "Name": "nginx02",
+                "EndpointID": "1057ee2fa377eda0408bb15e09c758272300956f4ceb39cc06e00771646868e4",
+                "MacAddress": "02:42:ac:14:00:02",
+                "IPv4Address": "172.20.0.2/16",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {},
+        "Labels": {}
+    }
+]
