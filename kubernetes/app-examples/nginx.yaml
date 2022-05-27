@@ -1,0 +1,34 @@
+# Spacing is only for readability - not required at all
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+
+
+spec:
+  # Match any pod with the 'app: nginx' label
+  selector:
+    matchLabels:
+      app: nginx
+  
+  # Number of Pods to run (matching the template)
+  replicas: 2
+  
+  # Template for Pods in the Deployment
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.16
+        envFrom:
+          - secretRef:
+              name: bigsecret
+        ports:
+          - containerPort: 80
+
+# kubectl describe deployments
+# kubectl get pods -l app=nginx
+# kubectl delete deployment nginx-deployment
