@@ -1,5 +1,7 @@
 # DevNet Expert Studies
-### Exam Date: May 3, 2022
+### Exam Attempt #1: May 3, 2022 - FAILED
+### Exam Attempt #2: June 3, 2022 - FAILED
+### Next Exam Attempt: TBD
 
 This repository will be used to track my progress and maintain all notes/scripts/apps developed during my Cisco DevNet Expert studies.
 Along with labbing, I'll also be reading a few books to prepare for the DevNet Expert Lab exam. I am providing a list of the books I'm 
@@ -13,6 +15,7 @@ I've discovered that GitLab will most likely be used in the DevNet Expert lab en
 Book List:
 - [x] Mastering Python Networking (Eric Chou)
 - [x] Clean Architecture (Robert C. Martin)
-- [ ] Network Programmability with YANG: The Structure of Network Automation with YANG, NETCONF, RESTCONF, and gNMI (Benoit Claise, Joe Clarke)
-- [ ] Kubernetes: Up and Running: Dive into the Future of Infrastructure (Brendan Burns, Joe Beda, Kelsey Hightower)
+- [x] Network Programmability with YANG: The Structure of Network Automation with YANG, NETCONF, RESTCONF, and gNMI (Benoit Claise, Joe Clarke)
+  - Great book to better understand YANG! ***Highly recommend***
+- [x] Kubernetes: Up and Running: Dive into the Future of Infrastructure (Brendan Burns, Joe Beda, Kelsey Hightower)
 - [x] Network Programmability and Automation Fundamentals (Cisco Press) - *Using only for reference (not reading completely through)*
