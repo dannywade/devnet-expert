@@ -39,49 +39,50 @@ def data_intake():
     - Parse interesting data to be sent to user
     - Send interesting data to Webex Teams
     """
-    if request.method == "POST":
-        # Debugging purposes
-        print("Data received from Webhook is: ", request.json)
+    if request.method != "POST":
+        return
+    # Debugging purposes
+    print("Data received from Webhook is: ", request.json)
 
-        # Collect Meraki JSON data
-        response = request.json
+    # Collect Meraki JSON data
+    response = request.json
 
-        # Parsing out interesting data from Meraki alert data and marking down for Webex payload
-        webex_message = f"""
+    # Parsing out interesting data from Meraki alert data and marking down for Webex payload
+    webex_message = f"""
         ALERT: Network {response['networkName']} in organization {response['organizationName']} had the following change occur: 
         ```
         {response['alertData']}
         ```
         """
 
-        # Base URL to post messages to Webex
-        webex_url = "https://webexapis.com/v1/messages"
+    # Base URL to post messages to Webex
+    webex_url = "https://webexapis.com/v1/messages"
 
-        # Payload for Webex Messages API
-        message_body = json.dumps({"roomId": WEBEX_ROOM_ID, "markdown": webex_message})
+    # Payload for Webex Messages API
+    message_body = json.dumps({"roomId": WEBEX_ROOM_ID, "markdown": webex_message})
 
-        # Required headers for Webex Messages API call
-        webex_headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {WEBEX_BOT_TOKEN}",
-        }
+    # Required headers for Webex Messages API call
+    webex_headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {WEBEX_BOT_TOKEN}",
+    }
 
-        # Send parsed data to Webex Teams room
-        webex_post = requests.post(
-            url=webex_url, headers=webex_headers, data=message_body, verify=False
-        )
+    # Send parsed data to Webex Teams room
+    webex_post = requests.post(
+        url=webex_url, headers=webex_headers, data=message_body, verify=False
+    )
 
-        # Print out response body and status code
-        print(webex_post.status_code)
-        print(webex_post.json())
+    # Print out response body and status code
+    print(webex_post.status_code)
+    print(webex_post.json())
 
-        # Indicate whether request was successful (should be a log message)
-        if webex_post.ok:
-            print("Webex message sent!")
-        else:
-            print("Error sending to Webex")
+    # Indicate whether request was successful (should be a log message)
+    if webex_post.ok:
+        print("Webex message sent!")
+    else:
+        print("Error sending to Webex")
 
-        return "Webhook received!"
+    return "Webhook received!"
 
 
 if __name__ == "__main__":

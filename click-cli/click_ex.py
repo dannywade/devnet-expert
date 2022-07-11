@@ -16,7 +16,7 @@ def cli(ctx, debug):
 def sync(ctx):
     click.echo(ctx.obj) # prints entire context object that's passed in
     click.echo(ctx.parent.obj) # prints entire context object of parent (cli)
-    click.echo('Debug is %s' % (ctx.obj['DEBUG'] and 'on' or 'off'))
+    click.echo(f"Debug is {ctx.obj['DEBUG'] and 'on' or 'off'}")
 
 if __name__ == '__main__':
     cli(obj={})

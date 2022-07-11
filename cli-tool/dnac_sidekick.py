@@ -35,7 +35,6 @@ def dnac_cli():
 def get():
     """ Action for read-only tasks and gathering information. """
     click.echo("Getting information...")
-    pass
 
 @get.group()
 def inventory():
@@ -91,10 +90,10 @@ def devices(dnac_url, token, hostname):
         table.add_column("Device Type", justify="left", style="cyan")
         table.add_column("Serial Number", justify="center", style="green")
         table.add_column("Software Version", justify="right", style="red")
-        
+
         for device in device_list:
             table.add_row(device["hostname"], device["type"], device["serialNumber"], device["softwareVersion"])
-        
+
         console = Console()
         console.print(table)
         # click.echo(f"Here's a list of devices: {console.print(table)}")
@@ -124,7 +123,7 @@ def devices(dnac_url, token):
         table.add_column("Overall Health", justify="left", style="cyan")
         table.add_column("CPU Util (%)", justify="center", style="green")
         table.add_column("Memory Util (%)", justify="right", style="red")
-        
+
         for device in device_list:
             if device.get("overallHealth", -1) < 0:
                 device_overall = "N/A"
@@ -133,7 +132,7 @@ def devices(dnac_url, token):
             device_cpu_util = str(device.get("cpuUlitilization", "N/A"))
             device_mem_util = str(device.get("memoryUtilization", "N/A"))
             table.add_row(device["name"], device_overall, device_cpu_util, device_mem_util)
-        
+
         console = Console()
         console.print(table)
     elif response.status_code == 401:
@@ -164,7 +163,7 @@ def clients(dnac_url, token, mac):
         table.add_column("Client Type", justify="left", style="purple")
         table.add_column("Client Count", justify="center", style="cyan")
         table.add_column("Client Health Score", justify="right", style="green")
-        
+
         for device in device_list:
             if device.get("siteId") == "global":
                 for score in device.get("scoreDetail"):
@@ -173,7 +172,7 @@ def clients(dnac_url, token, mac):
                     client_score = str(score["scoreValue"]) if score["scoreValue"] > 0 else "0"
 
                     table.add_row(client_type, client_count, client_score)
-        
+
         console = Console()
         console.print(table)
     elif response.status_code == 401:
