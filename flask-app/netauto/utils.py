@@ -19,12 +19,10 @@ def get_ios_version(hostname: str) -> str:
 
     with IOSXEDriver(**scrapli_dev) as conn:
         result = conn.send_command("show version")
-    
+
     parsed_output = result.genie_parse_output()
 
-    ios_version = parsed_output["version"]["version"]
-
-    return ios_version
+    return parsed_output["version"]["version"]
 
 # USED FOR TESTING
 if __name__ == "__main__":

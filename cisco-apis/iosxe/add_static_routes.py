@@ -23,7 +23,7 @@ def add_static_routes():
         config = yaml.safe_load(conf)
 
     add_static_route_url = f"{BASE_URL}/ietf-routing:routing/routing-instance=default/routing-protocols/routing-protocol=static,1/static-routes/ipv4"
-    
+
     response = requests.post(url=add_static_route_url, headers=headers, auth=(DEVICE_USER, DEVICE_PASS), json=config, verify=False)
 
     if response.status_code == 201:

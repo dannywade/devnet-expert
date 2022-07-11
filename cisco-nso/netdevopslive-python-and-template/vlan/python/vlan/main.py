@@ -12,20 +12,20 @@ class VLANService(Service):
     # must always exist.
     @Service.create
     def cb_create(self, tctx, root, service, proplist):
-        self.log.info('Creating VLAN {} (id {})'.format(service._path, service.id)) 
+        self.log.info(f'Creating VLAN {service._path} (id {service.id})') 
 
         vars = ncs.template.Variables()
-        
+
         template = ncs.template.Template(service)
         # Creates the VLAN
         template.apply('vlan-template', vars)
 
         # Apply template to access ports in this VLAN
-        self.log.info('Configuring access ports for VLAN {}'.format(service.id))
+        self.log.info(f'Configuring access ports for VLAN {service.id}')
         template.apply('access-port-template')
 
         # Apply template to trunk ports in this VLAN
-        self.log.info('Configuring trunk ports for VLAN {}'.format(service.id))
+        self.log.info(f'Configuring trunk ports for VLAN {service.id}')
         template.apply('trunk-port-template')
 
 
